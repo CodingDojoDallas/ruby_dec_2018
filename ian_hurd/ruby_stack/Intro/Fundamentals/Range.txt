@@ -1,0 +1,12 @@
+array = [1,7,45,32,12,4,7]
+ => [1, 7, 45, 32, 12, 4, 7]
+2.3.1 :002 > array.include?(2)
+ => false
+2.3.1 :003 > array.include?(7)
+ => true
+2.3.1 :004 > array.last
+ => 7
+2.3.1 :005 > array.max
+ => 45
+2.3.1 :006 > array.min
+ => 1

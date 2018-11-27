@@ -1,0 +1,10 @@
+.at(num) - returns the value at that index
+.delete(num) - deletes index
+.reverse - returns array in reverse
+.length - returns length of array
+.sort - sorts array
+.slice(num) - returns value at index num
+.shuffle - returns a shuffled array
+.join - combines array values into single value and returns
+.insert (index,val) - inserts a value into index of array
+values_at(index1,index2, etc...) - returns an array composed of values from given indexes of array
