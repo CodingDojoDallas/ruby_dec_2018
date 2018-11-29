@@ -1,0 +1,53 @@
+1. create 5 new blogs.
++----+------------------+-----------------+-----------------+------------------+
+| id | name             | description     | created_at      | updated_at       |
++----+------------------+-----------------+-----------------+------------------+
+| 1  | Baking 101       | Baking basic... | 2018-11-29 0... | 2018-11-29 03... |
+| 2  | Baking from S... | Baking in a ... | 2018-11-29 0... | 2018-11-29 03... |
+| 3  | Baking like P... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
+| 4  | Bake like Mar... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
+| 5  | Baking for Du... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
++----+------------------+-----------------+-----------------+------------------+
+2. create several posts for each blog.
++----+---------------+---------------+---------+---------------+---------------+
+| id | title         | content       | blog_id | created_at    | updated_at    |
++----+---------------+---------------+---------+---------------+---------------+
+| 1  | Items need... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 2  | Kitchen Pr... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 3  | A Simple S... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 4  | A Simple B... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 5  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 6  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 7  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 8  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 9  | An Expert ... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 10 | An Expert ... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 11 | Paul Holly... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 12 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 13 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 14 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 15 | I Promise ... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
+| 16 | It is not ... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
+| 17 | Really?? Y... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
++----+---------------+---------------+---------+---------------+---------------+
+3. create several messages for the first post.
++----+---------+-----------------+---------+-----------------+-----------------+
+| id | author  | message         | post_id | created_at      | updated_at      |
++----+---------+-----------------+---------+-----------------+-----------------+
+| 1  | George  | I am not sur... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 2  | Lincoln | I am not sur... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 3  | Lincoln | I agree step... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 4  | Lincoln | Is anybody a... | 1       | 2018-11-29 0... | 2018-11-29 0... |
++----+---------+-----------------+---------+-----------------+-----------------+
+4. know how to retrieve all posts for the first blog.
+Blog.first.posts
+5. know how to retrieve all posts for the last blog (sorted by title in the DESC order).
+Blog.last.posts.order(title: :desc)
+6. know how to update the first post's title.
+Post.first.update(title: "Not sure what it was but now it is this")
+7. know how to delete the third post (have the model automatically delete all messages associated with the third post when you delete the third post).
+Post.find(3).destroy
+8. know how to retrieve all blogs.
+Blog.all
+9. know how to retrieve all blogs whose id is less than 5.
+Blog.where("id < 5")
