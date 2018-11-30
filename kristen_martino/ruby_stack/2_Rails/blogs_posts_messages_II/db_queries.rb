@@ -80,6 +80,7 @@ Post.joins(:user).select("*").where("blog_id = 5")
 
 # Retrieve all messages associated with the blog id 5 along with all the user information of those who left the messages
 Message.joins(:user, :post).select("*").where("blog_id = 5")
+# Message.joins(:user, :post).select("*").where("blog_id = ?", 5)
 
 # Grab all user information of those that own the first blog (make this work by allowing Blog.first.owners to work).
 Owner.joins(:user, :blog).select("users.first_name, users.last_name, users.email_address").where("blog_id = 1")
