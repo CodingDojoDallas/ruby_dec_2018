@@ -1,0 +1,20 @@
+User.create(first_name: "Kristen", last_name: "Martino")
+User.create(first_name: "Martino", last_name: "Martino")
+User.create(first_name: "Vincent", last_name: "Martino")
+
+Friendship.create(user: User.first, friend: User.second)
+Friendship.create(user: User.first, friend: User.third)
+Friendship.create(user: User.last, friend: User.first)
+User.first
+User.first.friends
+User.first.link_friendships
+User.first.link_friends
+
+#1 User.first
+
+#2
+User.first.friends
+
+#3
+User.where.not(id: User.first.friends)  # People I haven't friended
+User.where.not(id: User.first.link_friendships) # People who haven't friended me
