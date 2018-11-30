@@ -1,0 +1,63 @@
+irb(main):051:0> '4'.to_c
+=> (4+0i)
+irb(main):052:0> '4'.to_r
+=> (4/1)
+irb(main):053:0> '4'.to_f
+=> 4.0
+irb(main):054:0> '4'.to_i
+=> 4
+irb(main):055:0> '4'.to_i.class
+=> Integer
+irb(main):056:0> arr = [1,2,3,4,5]
+=> [1, 2, 3, 4, 5]
+irb(main):057:0> arr.fetch(1)
+=> 2
+irb(main):058:0> arr.at(1)
+=> 2
+irb(main):059:0> arr.fetch(-1)
+=> 5
+irb(main):060:0> arr.at(-1)
+=> 5
+irb(main):061:0> arr.reverse
+=> [5, 4, 3, 2, 1]
+irb(main):062:0> arr.length
+=> 5
+irb(main):063:0> arr.sort
+=> [1, 2, 3, 4, 5]
+irb(main):064:0> arr.sort.reverse
+=> [5, 4, 3, 2, 1]
+irb(main):065:0> arr.slice
+ArgumentError: wrong number of arguments (given 0, expected 1..2)
+        from (irb):65:in `slice'
+        from (irb):65
+        from C:/Ruby24-x64/bin/irb.cmd:19:in `<main>'
+irb(main):066:0> arr.slice()
+ArgumentError: wrong number of arguments (given 0, expected 1..2)
+        from (irb):66:in `slice'
+        from (irb):66
+        from C:/Ruby24-x64/bin/irb.cmd:19:in `<main>'
+irb(main):067:0> arr.slice('')
+TypeError: no implicit conversion of String into Integer
+        from (irb):67:in `slice'
+        from (irb):67
+        from C:/Ruby24-x64/bin/irb.cmd:19:in `<main>'
+irb(main):068:0> arr
+=> [1, 2, 3, 4, 5]
+irb(main):069:0> arr.shuffle
+=> [3, 4, 1, 5, 2]
+irb(main):070:0> arr.join [6,7]
+TypeError: no implicit conversion of Array into String
+        from (irb):70:in `join'
+        from (irb):70
+        from C:/Ruby24-x64/bin/irb.cmd:19:in `<main>'
+irb(main):071:0> arr.insert(1,5)
+=> [1, 5, 2, 3, 4, 5]
+irb(main):072:0> arr.values_at(1,2,3)
+=> [5, 2, 3]
+irb(main):073:0> arr
+=> [1, 5, 2, 3, 4, 5]
+irb(main):074:0> arr.remove(1)
+NoMethodError: undefined method `remove' for [1, 5, 2, 3, 4, 5]:Array
+        from (irb):74
+        from C:/Ruby24-x64/bin/irb.cmd:19:in `<main>'
+irb(main):075:0> arr.methods
