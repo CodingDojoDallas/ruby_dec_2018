@@ -1,7 +1,7 @@
 class User
-	def first_name=(val)
-		@first_name = val
-	end
+  def first_name=(val)
+    @first_name = val
+  end
 end
 user1            = User.new
 user2            = User.new
