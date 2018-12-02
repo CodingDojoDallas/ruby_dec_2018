@@ -1,0 +1,7 @@
+<h2>Edit the current User</h2>
+<form action="/update/<%= @user.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="<%= @user.name %>">
+    <button type="submit" name="button">Edit</button>
+</form>
