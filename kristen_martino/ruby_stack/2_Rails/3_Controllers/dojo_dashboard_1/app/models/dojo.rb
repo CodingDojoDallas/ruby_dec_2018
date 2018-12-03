@@ -1,0 +1,2 @@
+class Dojo < ApplicationRecord
+end
