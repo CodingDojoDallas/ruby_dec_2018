@@ -1,0 +1,2 @@
+module SergeantsHelper
+end
