@@ -60,12 +60,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
-gem 'rack-mini-profiler'
-# For memory profiling
-gem 'memory_profiler'
-
-# For call-stack profiling flamegraphs
-gem 'flamegraph'
-gem 'stackprof'
