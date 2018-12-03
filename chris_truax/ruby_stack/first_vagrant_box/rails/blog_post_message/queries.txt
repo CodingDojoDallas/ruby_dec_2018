@@ -1,0 +1,97 @@
+1. create 5 new blogs.
++----+------------------+-----------------+-----------------+------------------+
+| id | name             | description     | created_at      | updated_at       |
++----+------------------+-----------------+-----------------+------------------+
+| 1  | Baking 101       | Baking basic... | 2018-11-29 0... | 2018-11-29 03... |
+| 2  | Baking from S... | Baking in a ... | 2018-11-29 0... | 2018-11-29 03... |
+| 3  | Baking like P... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
+| 4  | Bake like Mar... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
+| 5  | Baking for Du... | Learn to bak... | 2018-11-29 0... | 2018-11-29 03... |
++----+------------------+-----------------+-----------------+------------------+
+2. create several posts for each blog.
++----+---------------+---------------+---------+---------------+---------------+
+| id | title         | content       | blog_id | created_at    | updated_at    |
++----+---------------+---------------+---------+---------------+---------------+
+| 1  | Items need... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 2  | Kitchen Pr... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 3  | A Simple S... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 4  | A Simple B... | Pans, oven... | 1       | 2018-11-29... | 2018-11-29... |
+| 5  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 6  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 7  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 8  | An Advance... | Pans, oven... | 2       | 2018-11-29... | 2018-11-29... |
+| 9  | An Expert ... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 10 | An Expert ... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 11 | Paul Holly... | Pans, oven... | 3       | 2018-11-29... | 2018-11-29... |
+| 12 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 13 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 14 | Mary Berry... | Pans, oven... | 4       | 2018-11-29... | 2018-11-29... |
+| 15 | I Promise ... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
+| 16 | It is not ... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
+| 17 | Really?? Y... | Pans, oven... | 5       | 2018-11-29... | 2018-11-29... |
++----+---------------+---------------+---------+---------------+---------------+
+3. create several messages for the first post.
++----+---------+-----------------+---------+-----------------+-----------------+
+| id | author  | message         | post_id | created_at      | updated_at      |
++----+---------+-----------------+---------+-----------------+-----------------+
+| 1  | George  | I am not sur... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 2  | Lincoln | I am not sur... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 3  | Lincoln | I agree step... | 1       | 2018-11-29 0... | 2018-11-29 0... |
+| 4  | Lincoln | Is anybody a... | 1       | 2018-11-29 0... | 2018-11-29 0... |
++----+---------+-----------------+---------+-----------------+-----------------+
+4. know how to retrieve all posts for the first blog.
+Blog.first.posts
+5. know how to retrieve all posts for the last blog (sorted by title in the DESC order).
+Blog.last.posts.order(title: :desc)
+6. know how to update the first post's title.
+Post.first.update(title: "Not sure what it was but now it is this")
+7. know how to delete the third post (have the model automatically delete all messages associated with the third post when you delete the third post).
+Post.find(3).destroy
+8. know how to retrieve all blogs.
+Blog.all
+9. know how to retrieve all blogs whose id is less than 5.
+Blog.where("id < 5")
+
+BLOGS II
+
+Create 5 users
+User.create(first_name: "Jane",last_name: "Doe", email_address: "jane@doe.com")
+Create 5 blogs
+created above
+Have the first 3 blogs be owned by the first user
+Owner.create(user:User.first,blog:Blog.find(1))
+Have the 4th blog you create be owned by the second user
+Owner.create(user:User.second,blog:Blog.find(4))
+Have the 5th blog you create be owned by the last user
+similar to above
+Have the third user own all of the blogs that were created.
+blogs = Blog.all
+blogs.each do|i|
+    Owner.create(user:User.find(3),blog:i)
+end
+Have the first user create 3 posts for the blog with an id of 2. Remember that you shouldn't do Post.create(user: User.first, blog_id: 2) but more like Post.create(user: User.first, blog: Blog.find(2)). Again, you should never reference the foreign key in Rails.
+Have the second user create 5 posts for the last Blog.
+Post.create(title:"I am a title",content:"I am content",blog:Blog.last, user:User.second)
+Have the 3rd user create several posts for different blogs.
+Have the 3rd user create 2 messages for the first post created and 3 messages for the second post created
+Message.create(author: "Jane",message: "No one reads these!!!",post:Post.second,user:User.third)
+Have the 4th user create 3 messages for the last post you created.
+Message.create(author: "Joe",message: "No instructor reads these!!!",post:Post.last,user:User.fourth)
+Change the owner of the 2nd post to the last user.
+Post.find(2).update(user: User.last)
+Change the 2nd post's content to be something else.
+Post.find(2).update(content: "something else")
+Retrieve all blogs owned by the 3rd user (make this work by simply doing: User.find(3).blogs).
+User.find(3).o_blogs
+Retrieve all posts that were created by the 3rd user
+User.find(3).posts
+Retrieve all messages left by the 3rd user
+User.find(3).messages
+Retrieve all posts associated with the blog id 5 as well as who left these posts.
+Blog.joins(:p_users).select("first_name, title").where("blog_id = 5")
+Retrieve all messages associated with the blog id 5 along with all the user information of those who left the messages
+Post.joins(:m_users).select("message, first_name, last_name, email_address").where("blog_id = 5")
+Grab all user information of those that own the first blog (make this work by allowing Blog.first.owners to work).
+Blog.first.o_users
+Change it so that the first blog is no longer owned by the first user.
+Owner.find_by(user: User.first, blog: Blog.first).destroy
