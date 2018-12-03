@@ -28,4 +28,9 @@ class UsersController < ApplicationController
     @total = User.all.count
     render text: "The total number of users is " + @total.to_s
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to '/'
+  end
 end

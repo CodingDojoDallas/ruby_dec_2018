@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div class="container">
+    <h1><%= @dojo.branch %></h1>
+</div>
+<div class="container">
+    <h2>Address: <%= @dojo.street %></h2>
+    <h2>City: <%= @dojo.city %></h2>
+    <h2>State: <%= @dojo.state %></h2>
+    <a class="badge badge-primary" href="/dojos">Home</a>
+    <a class="badge badge-success" href="/dojos/<%=@dojo.id%>/edit">Edit</a>
+    <a class="badge badge-danger" href="/dojos/<%=@dojo.id%>" data-method="delete">Destroy</a>
+</div>
