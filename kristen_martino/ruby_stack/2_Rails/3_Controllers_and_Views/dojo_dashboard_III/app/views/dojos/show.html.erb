@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All the Dojos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+  <h1><%= @dojo.branch %> Dojo</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <td>Street</td>
+      <td>City</td>
+      <td>State</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @dojo.street %></td>
+        <td><%= @dojo.city %></td>
+        <td><%= @dojo.state %></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/edit">Edit</a>
+</div>
+</body>
+</html>
