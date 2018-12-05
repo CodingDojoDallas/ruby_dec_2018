@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div class="container">
+  <h2>New Student</h2>
+  <form class="form-group" action="/dojos/<%=@dojo.id%>/students" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="student[dojo_id]" value="<%=@dojo.id%>">
+    <label for="">First Name:</label>
+    <input class="form-control" type="text" name="student[first_name]" value="">
+    <label for="">Last Name:</label>
+    <input class="form-control" type="text" name="student[last_name]" value="">
+    <label for="">Email:</label>
+    <input class="form-control" type="text" name="student[email]" value="">
+    <p>Dojo: <select name="student[dojo_id]" class="form-control">
+	  			<option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+	  			<% @dojos.each do |dojo| %>
+	  				<% if dojo.id != @dojo.id %>
+	  					<option value="<%= dojo.id %>"><%= dojo.branch %></option>
+	  				<% end %>
+	  			<% end %>
+			</select></p>
+    <button class="btn btn-primary mt-3" type="submit">Submit</button>
+  </form>
+  <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>"><%= @dojo.branch %></a></p>
+</div>

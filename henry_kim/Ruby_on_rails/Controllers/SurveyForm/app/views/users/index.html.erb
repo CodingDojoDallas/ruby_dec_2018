@@ -1,0 +1,45 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+<div class="container">
+  <h1>The Dojo Survey</h1>
+<form action="/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div class="form-group w-75 p-3">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" name="user[name]">
+  </div>
+
+<div class="form-group w-75 p-3">
+  <label for="language">Dojo Location</label>
+    <select class="form-control" name="user[location]">
+      <option>Please select a location</option>
+      <option value="San Fransisco">San Fransisco</option>
+      <option value="New York City">New York City</option>
+      <option value="Dallas">Dallas</option>
+      <option value="Home">Home</option>
+    </select>
+</div>
+
+<div class="form-group  w-75 p-3 d-inline-block">
+  <label for="language">Favorite Language</label>
+  <select class="form-control" name="user[language]">
+    <option>Please select a language</option>
+    <option value="Ruby">Ruby</option>
+    <option value="iOS">iOS</option>
+    <option value="Python">Python</option>
+    <option value="C++">C++</option>
+  </select>
+</div>
+
+
+<div class="form-group w-75 p-3">
+    <label for="Comment">Comment (optional)</label>
+    <textarea class="form-control" name="user[comment]" rows="3"></textarea>
+    <button type="submit" class="btn btn-primary float-right mt-4">Submit</button>
+</div>
+</form>
+
+</div>
