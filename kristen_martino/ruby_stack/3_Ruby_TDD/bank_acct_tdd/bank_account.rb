@@ -30,22 +30,22 @@ class BankAccount
 
   def view_acct_num
     puts @acct_num
-    self
+    @acct_num
   end
 
   def view_total
     puts @checking_bal + @saving_bal
-    self
+    @checking_bal + @saving_bal
   end
 
   def view_checking
     puts @checking_bal
-    self
+    @checking_bal
   end
 
   def view_saving
     puts @saving_bal
-    self
+    @saving_bal
   end
 
   def deposit_checking(amt)
@@ -59,23 +59,22 @@ class BankAccount
   end
 
   def withdraw_checking(amt)
-    @checking_bal >= amt ? @checking_bal -= amt : puts('Insufficient funds') unless amt < 0
+    if @checking_bal >= amt
+      @checking_bal -= amt
+    else
+      puts('Insufficient funds')
+      raise('Error: insufficient funds')
+    end unless amt < 0
     self
   end
 
   def withdraw_saving(amt)
-    @saving_bal >= amt ? @saving_bal -= amt : puts('Insufficient funds') unless amt < 0
+    if @saving_bal >= amt
+      @saving_bal -= amt
+    else
+      puts('Insufficient funds')
+      raise('Error: insufficient funds')
+    end unless amt < 0
     self
   end
 end
-
-my_acct = BankAccount.new
-your_acct = BankAccount.new
-my_acct.account_information
-my_acct.deposit_checking(500).deposit_checking(-250)
-my_acct.withdraw_checking(-100).withdraw_checking(1000)
-my_acct.withdraw_checking(100)
-my_acct.deposit_saving(1000)
-my_acct.account_information
-
-BankAccount.total_accts
