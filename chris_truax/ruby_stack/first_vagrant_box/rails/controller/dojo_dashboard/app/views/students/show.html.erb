@@ -1,21 +1,20 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <div class="container">
-    <h1><%= @dojo.branch %></h1>
+    <h1><%= @dojo.city %>'s <%= @student.first_name %> <%= @student.last_name %></h1>
 </div>
 <div class="container">
-    <h2>Address: <%= @dojo.street %></h2>
-    <h2>City: <%= @dojo.city %></h2>
-    <h2>State: <%= @dojo.state %></h2>
+    <h2>Email: <%= @student.email %></h2>
+    
     <a class="badge badge-primary" href="/dojos">Home</a>
-    <a class="badge badge-success" href="/dojos/<%=@dojo.id%>/edit">Edit</a>
-    <a class="badge badge-danger" href="/dojos/<%=@dojo.id%>" data-method="delete">Destroy</a>
+    <a class="badge badge-success" href="/dojos/<%=@dojo.id%>/students/<%=@student.id%>/edit">Edit</a>
+    <a class="badge badge-danger" href="/dojos/<%=@dojo.id%>/students/<%=@student.id%>" data-method="delete">Destroy</a>
+    <h2>Cohort</h2>
     <table class="container table m-5">
         <thead>
             <tr>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,12 +23,9 @@
             <th scope="row"><%=student.first_name%></th>
             <td><%=student.last_name%></td>
             <td><%=student.email%></td>
-            <td><a class="badge badge-primary" href="/dojos/<%=@dojo.id%>/students/<%=student.id%>">Show</a> | <a class="badge badge-success" href="/dojos/<%=@dojo.id%>/students/<%=student.id%>/edit">Edit</a> | <a class="badge badge-danger" href="/dojos/<%=@dojo.id%>/students/<%=student.id%>" data-method="delete">Destroy</a></td>
-            </tr>
+</tr>
             <%end%>
         </tbody>
     </table>
-<div class="container">
-  <a class="btn btn-primary" href="/dojos/<%=@dojo.id%>/students/new">New student</a>
-</div>
+
 </div>

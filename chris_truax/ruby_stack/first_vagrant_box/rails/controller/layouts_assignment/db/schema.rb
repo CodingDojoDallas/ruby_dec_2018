@@ -11,26 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181204172209) do
+ActiveRecord::Schema.define(version: 20181204223018) do
 
-  create_table "dojos", force: :cascade do |t|
-    t.string   "branch"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "students", force: :cascade do |t|
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
-    t.integer  "dojo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "favorite_language"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
-
-  add_index "students", ["dojo_id"], name: "index_students_on_dojo_id"
 
 end
