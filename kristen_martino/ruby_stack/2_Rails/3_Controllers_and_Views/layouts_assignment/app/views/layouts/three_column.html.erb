@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Dynamically add a title -->
+  <!-- Dynamically add a title -->
   <title><%= yield :title %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <%= yield :all_posts %>
-      </div>
-      <div class="col-md-4">
-        <%= yield :new_post %>
-      </div>
-      <div class="col-md-4">
-        <%= yield :link_to_users %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= yield :all_posts %>
+    </div>
+    <div class="col-md-4">
+      <%= yield :new_post %>
+    </div>
+    <div class="col-md-4">
+      <%= yield :link_to_users %>
     </div>
   </div>
+</div>
 
 <%= yield %>
 
