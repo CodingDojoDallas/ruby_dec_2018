@@ -15,17 +15,18 @@ module Stringer
       string
     end
     def self.replacify string, old, new
-      if string.include? old
-        array = string.partition(old)
-        string = ''
-        array.each do |i|
-          if i == old
-            i.replace new
-          end
-          string += i
-        end
-      end
-      string
+      # if string.include? old
+      #   array = string.partition(old)
+      #   string = ''
+      #   array.each do |i|
+      #     if i == old
+      #       i.replace new
+      #     end
+      #     string += i
+      #   end
+      # end
+      # string
+      string.gsub(old,new)
     end
     def self.tokenize string
       array = string.split(' ')
