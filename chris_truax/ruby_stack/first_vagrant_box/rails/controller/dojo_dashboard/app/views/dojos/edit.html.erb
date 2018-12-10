@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div class="container">
+    <h1>Edit Dojos</h1>
+</div>
+<div class="container">
+    <form action='/dojos/<%= @dojo.id %>' method='post'>
+    <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label for="exampleInputtext1">Branch:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="dojo[branch]" value="<%= @dojo.branch %>">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputtext1">Street:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="dojo[street]" value="<%= @dojo.street %>">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputtext1">City:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="dojo[city]" value="<%= @dojo.city %>">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputtext1">State:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="dojo[state]" value="<%= @dojo.state %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
