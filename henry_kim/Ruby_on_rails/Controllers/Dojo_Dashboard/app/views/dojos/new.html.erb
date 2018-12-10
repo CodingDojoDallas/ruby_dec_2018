@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div class="container">
+  <h2>New Dojo</h2>
+  <form class="form-group" action="/create" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="username">Branch:</label>
+    <input class="form-control" type="text" name="dojo[branch]">
+    <label for="email">Street:</label>
+    <input class="form-control" type="text" name="dojo[street]">
+    <label for="">City:</label>
+    <input class="form-control" type="text" name="dojo[city]">
+    <label for="">State:</label>
+    <input class="form-control" type="text" name="dojo[state]">
+    <button class="btn btn-primary mt-3" type="submit">Submit</button>
+  </form>
+  <a href="/dojos">Go Back</a>
+</div>
