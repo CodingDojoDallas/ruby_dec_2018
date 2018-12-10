@@ -1,0 +1,19 @@
+<h1>CodingDojo Wall</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |note| %>
+    <p id="notice"><%= note %></p>
+  <% end %>
+<% end %>
+<form action="/messages" method="post">
+  <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type='hidden' name="message[user]" value="<%= session[:user_id] %>">
+  <label for="message_message">Post a Message
+    <textarea name="message[message]" id="message_message">Enter message here...</textarea>
+  </label>
+  <input type="submit" value="Post a Message">
+</form>
+<% if @messages %>
+  <% @messages.each do |msg| %>
+    <p><%= msg.message %></p>
+  <% end %>
+<% end %>
