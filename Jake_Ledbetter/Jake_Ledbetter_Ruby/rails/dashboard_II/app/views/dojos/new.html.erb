@@ -1,0 +1,15 @@
+<h1>Create a new Dojo</h1>
+<form action ='/dojos/create' method='post'>
+	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	Branch <input type='text' name='dojo[branch]'>
+	Street: <input type='text' name='dojo[street]'>
+	City: <input type='text' name='dojo[city]'>
+	State: <input type='text' name='dojo[state]'>
+	<input type='submit' value='create'>
+</form>
+<a href='/dojos'>Home</a>
+<% if @errors %>
+	<% @errors.each do |error| %>
+		<p style='color:red'><%= error%></p>
+	<% end %>
+<% end %>
