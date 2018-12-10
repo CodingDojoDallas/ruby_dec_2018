@@ -1,0 +1,45 @@
+<% content_for :title, "All Users" %>
+<% content_for :all_users do %>
+  <h1>All Users</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Favorite Language</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.favorite_language %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+<% content_for :new_user do %>
+<form action='/users' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h2 class="display-4 font-weight-bold">New User</h2>
+    <div class='form-group row'>
+      <label for="first_name" class='col-sm-2 col-form-label'>First Name:</label>
+      <input id="first_name" name="user[first_name]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <label for="last_name" class='col-sm-2 col-form-label'>Last Name:</label>
+      <input id="last_name" name="user[last_name]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <label for="favorite_language" class='col-sm-2 col-form-label'>Favorite Language:</label>
+      <input id="favorite_language" name="user[favorite_language]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <div class='col-sm-8 offset-sm-2'>
+        <input type='submit' value='Create' class='btn btn-primary shadow'>
+      </div>
+    </div>
+  </form>
+<% end %>
