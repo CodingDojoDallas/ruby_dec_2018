@@ -1,0 +1,12 @@
+<h1>login</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |note| %>
+    <p id="notice"><%= note %></p>  
+  <% end %>
+<% end %>
+<form action='/users' method='post'>
+	 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	<label for='username'>username:</label>
+	<input type='text' id='username' name='user[username]'>
+	<button type='submit' name='submit'>login</button>
+</form>
