@@ -1,0 +1,21 @@
+<h1>THE WLL</h1>
+<% if flash[:success] %>
+<p><%= flash[:success] %></p>
+<% end %>
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+<form action = "/posts/" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <label>Message</label>
+  <input type = "text" name = "post[content]" id = "post_content">
+  <input type = "submit" value = "Create Post" name='Create Post'>
+</form>
+
+<% @posts.each do |i| %>
+    <p><%= i.content %></p>
+<% end %>
+<form action='/users/logout/' method='POST'>
+<input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+<button type= "submit" value = "LogOut">LogOut</button>
+</form>

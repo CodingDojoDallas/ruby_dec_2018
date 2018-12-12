@@ -1,0 +1,5 @@
+<h1>HERE YOU ARE</h1>
+<h3> Your ID IS:<%= @user.id %></h3>
+<h2>You are <%= @user.name %></h2>
+<h2>Your email is <%= @user.email %></h2>
+<%= link_to 'CHANGE MY INFO', users_edit_path(@user) %>

@@ -1,0 +1,24 @@
+<h1>Change up yo info</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |key,value| %>
+    <p id="notice"><%= key %> <%= value[0] %></p>  
+  <% end %>
+<% end %>
+<form action = "" method='post'>
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <input type = 'hidden' name='id' value='<%=@user.id %>'>
+  <input type ='hidden' name='_method' value='patch'>
+  <label>Name</label>
+  <input type = "text" name = "user[name]" id = "user_name" value='<%=@user.name %>'>
+  <label>Email</label>
+  <input type = "text" name = "user[email]" id = "user_email" value='<%=@user.email %>'>
+  <input type = "submit" value = "Update" id='edituserbutton'>
+</form>
+<br>
+<form>
+<form action = "" method = "post">
+<input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">  
+<input type = 'hidden' name='_method' value='delete'>
+<input type = "submit" value = "DELETE ME" id='deleteuserbutton'>
+</form>
+<a href='/login/'>log-in</a>
