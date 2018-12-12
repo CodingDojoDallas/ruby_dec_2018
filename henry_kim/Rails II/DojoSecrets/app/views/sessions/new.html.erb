@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div class="container">
+  <h2>Welcome to the Dojo Secrets...</h2>
+  <form class="form-group" action="/sessions" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="">Email:</label>
+    <input class="form-control" type="text" id="Email" name="user[email]">
+    <label for="">Password:</label>
+    <input class="form-control" type="text" id="Password" name="user[password]">
+    <button class="btn btn-primary mt-3" type="submit">Log In</button>
+  </form>
+  <a class="btn btn-success" href="/users/new" role="button">Create an account</a>
+</div>
