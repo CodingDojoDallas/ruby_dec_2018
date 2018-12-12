@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Survey Form</title>
+    
+</head>
+<body>
+    <div class="container bg-info text-white m-5 p-3">
+        <form action='/surveys/create' method='post'>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="form-group">
+                  <label for="name">Your Name:</label>
+                  <input type="text" class="form-control" name="survey[name]">
+                </div>
+                <div class="form-group">
+                    <label for="dojoLocation">Dojo Location:</label>
+                    <select class="form-control" name="survey[location]">
+                        <option>Dallas</option>
+                        <option>San Jose</option>
+                        <option>Los Angelos</option>
+                        <option>Seattle</option>
+                        <option>Chicago</option>
+                        <option>A nice beach somewhere</option>
+                        <option>Online</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="favoriteLanguage">Favorite Language:</label>
+                    <select class="form-control" name="survey[language]">
+                        <option>Python</option>
+                        <option>MEAN</option>
+                        <option>Sign Language</option>
+                        <option>Pig Latin</option>
+                        <option>Binary</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments (Optional):</label>
+                    <textarea class="form-control" name="survey[comment]" rows="3"></textarea>
+                </div>
+                <div class="nav justify-content-end">
+                    <input type='submit' class="btn btn-light nav-item" value='Submit'>
+                </div>
+              </form>
+            </div>
+</body>
+</html>

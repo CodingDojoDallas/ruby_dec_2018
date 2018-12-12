@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div class="container">
+  <h1>Editing <%=@dojo.branch%></h1>
+  <form class="form-group" action="/dojos/<%=@dojo.id%>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="patch">
+    <label for="username">Branch:</label>
+    <input class="form-control" type="text" name="dojo[branch]" value="<%=@dojo.branch%>">
+    <label for="email">Street:</label>
+    <input class="form-control" type="text" name="dojo[street]" value="<%=@dojo.street%>">
+    <label for="">City:</label>
+    <input class="form-control" type="text" name="dojo[city]" value="<%=@dojo.city%>">
+    <label for="">State:</label>
+    <input class="form-control" type="text" name="dojo[state]" value="<%=@dojo.state%>">
+    <button class="btn btn-primary" type="submit">Update</button>
+  </form>
+  <p><a href="/dojos">Home</a> | <a href="/dojos/<%=@dojo.id%>">Show</a></p>
+</div>

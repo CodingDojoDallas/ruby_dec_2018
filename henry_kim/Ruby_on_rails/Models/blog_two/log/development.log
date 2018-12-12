@@ -1,0 +1,1208 @@
+  [1m[36m (14.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (22.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (4.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMessages (20181129200510)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author" varchar, "message" varchar, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_messages_on_post_id" ON "messages" ("post_id")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181129200510"]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePosts (20181129200636)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (14.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "blog_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_posts_on_blog_id" ON "posts" ("blog_id")
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181129200636"]]
+  [1m[35m (12.4ms)[0m  commit transaction
+Migrating to CreateBlogs (20181129200818)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (14.7ms)[0m  CREATE TABLE "blogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_blogs_on_owner_id" ON "blogs" ("owner_id")[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181129200818"]]
+  [1m[36m (12.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateOwners (20181129201534)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (26.1ms)[0m  [1mCREATE TABLE "owners" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "blog_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_owners_on_blog_id" ON "owners" ("blog_id")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX "index_owners_on_user_id" ON "owners" ("user_id")
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181129201534"]]
+  [1m[35m (19.6ms)[0m  commit transaction
+Migrating to CreateUsers (20181129202010)
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email_address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181129202010"]]
+  [1m[35m (11.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.8ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_blogs_on_owner_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_blogs_on_owner_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+[0m
+  [1m[35m (2.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (2.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_blogs_on_owner_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_blogs_on_owner_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (3.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (3.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36mPost Load (22.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (4.1ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (3.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (3.5ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mBlog Load (6.5ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mUser Load (4.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.8ms)[0m  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Sheep"], ["description", "Sleep Sheep"], ["created_at", "2018-11-29 20:52:10.775601"], ["updated_at", "2018-11-29 20:52:10.775601"]]
+  [1m[36m (14.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (5.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('sheep@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Sheep"], ["last_name", "Sheep"], ["email_address", "sheep@gmail.com"], ["created_at", "2018-11-29 20:52:20.717012"], ["updated_at", "2018-11-29 20:52:20.717012"]]
+  [1m[36m (12.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (8.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('sheep@gmail.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (3.9ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('sheep@gmail.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (3.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('cow@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (7.8ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Cow"], ["last_name", "Cow"], ["email_address", "cow@gmail.com"], ["created_at", "2018-11-29 20:53:37.211567"], ["updated_at", "2018-11-29 20:53:37.211567"]]
+  [1m[36m (11.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (9.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('chicken@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Chicken"], ["last_name", "Chicken"], ["email_address", "chicken@gmail.com"], ["created_at", "2018-11-29 20:53:43.484678"], ["updated_at", "2018-11-29 20:53:43.484678"]]
+  [1m[36m (18.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (9.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('goat@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (8.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Goat"], ["last_name", "Goat"], ["email_address", "goat@gmail.com"], ["created_at", "2018-11-29 20:53:46.730182"], ["updated_at", "2018-11-29 20:53:46.730182"]]
+  [1m[36m (15.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (12.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('fish@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Fish"], ["last_name", "Fish"], ["email_address", "fish@gmail.com"], ["created_at", "2018-11-29 20:53:50.368715"], ["updated_at", "2018-11-29 20:53:50.368715"]]
+  [1m[36m (16.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (9.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mBlog Load (3.6ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.8ms)[0m  [1mINSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Scrum"], ["description", "Agile"], ["created_at", "2018-11-29 20:55:15.704011"], ["updated_at", "2018-11-29 20:55:15.704011"]]
+  [1m[35m (12.8ms)[0m  commit transaction
+  [1m[36mBlog Load (9.8ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mBlog Load (14.1ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (13.1ms)[0m  [1mINSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "How tough life is"], ["description", "Very tough"], ["created_at", "2018-11-29 20:58:11.884960"], ["updated_at", "2018-11-29 20:58:11.884960"]]
+  [1m[35m (13.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "How does Rails know"], ["description", "This is 3rd description"], ["created_at", "2018-11-29 21:05:07.292445"], ["updated_at", "2018-11-29 21:05:07.292445"]]
+  [1m[36m (16.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBlog Load (9.7ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (22.2ms)[0m  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Syntatic Sugar"], ["description", "This is 5th description"], ["created_at", "2018-11-29 21:06:06.162635"], ["updated_at", "2018-11-29 21:06:06.162635"]]
+  [1m[36m (13.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mBlog Load (10.0ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mBlog Load (2.6ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mOwner Load (6.1ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mBlog Load (3.5ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBlog Load (3.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (9.6ms)[0m  INSERT INTO "owners" ("blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["blog_id", 1], ["user_id", 1], ["created_at", "2018-11-29 21:09:50.445026"], ["updated_at", "2018-11-29 21:09:50.445026"]]
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBlog Load (9.2ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (15.6ms)[0m  [1mINSERT INTO "owners" ("blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["blog_id", 2], ["user_id", 1], ["created_at", "2018-11-29 21:10:26.740723"], ["updated_at", "2018-11-29 21:10:26.740723"]]
+  [1m[35m (17.5ms)[0m  commit transaction
+  [1m[36mBlog Load (10.1ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mOwner Load (2.7ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mBlog Load (3.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.1ms)[0m  INSERT INTO "owners" ("blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["blog_id", 3], ["user_id", 1], ["created_at", "2018-11-29 21:10:47.166444"], ["updated_at", "2018-11-29 21:10:47.166444"]]
+  [1m[36m (12.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mOwner Load (12.6ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mBlog Load (3.1ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO "owners" ("blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["blog_id", 4], ["user_id", 2], ["created_at", "2018-11-29 21:11:24.820848"], ["updated_at", "2018-11-29 21:11:24.820848"]]
+  [1m[36m (10.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mBlog Load (13.2ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (11.6ms)[0m  [1mINSERT INTO "owners" ("blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["blog_id", 5], ["user_id", 5], ["created_at", "2018-11-29 21:12:14.231840"], ["updated_at", "2018-11-29 21:12:14.231840"]]
+  [1m[35m (15.3ms)[0m  commit transaction
+  [1m[36mOwner Load (10.7ms)[0m  [1mSELECT "owners".* FROM "owners"[0m
+  [1m[35mBlog Load (3.0ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mBlog Load (3.5ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mOwner Load (3.0ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBlog Load (3.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBlog Load (3.4ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.9ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "first post"], ["content", "first content"], ["user_id", 1], ["blog_id", 2], ["created_at", "2018-11-29 21:30:18.014483"], ["updated_at", "2018-11-29 21:30:18.014483"]]
+  [1m[36m (12.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (9.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBlog Load (3.9ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (11.4ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "second post"], ["content", "second content"], ["user_id", 1], ["blog_id", 2], ["created_at", "2018-11-29 21:30:41.221361"], ["updated_at", "2018-11-29 21:30:41.221361"]]
+  [1m[35m (14.2ms)[0m  commit transaction
+  [1m[36mUser Load (8.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBlog Load (3.5ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "third post"], ["content", "third content"], ["user_id", 1], ["blog_id", 2], ["created_at", "2018-11-29 21:30:52.153685"], ["updated_at", "2018-11-29 21:30:52.153685"]]
+  [1m[36m (14.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (9.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.5ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "fourth post"], ["content", "fourth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:32:17.162630"], ["updated_at", "2018-11-29 21:32:17.162630"]]
+  [1m[36m (11.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (9.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mBlog Load (3.8ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (13.4ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "fifth post"], ["content", "fifth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:32:45.618655"], ["updated_at", "2018-11-29 21:32:45.618655"]]
+  [1m[35m (14.8ms)[0m  commit transaction
+  [1m[36mUser Load (15.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.9ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "sixth post"], ["content", "sixth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:33:04.294894"], ["updated_at", "2018-11-29 21:33:04.294894"]]
+  [1m[36m (12.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (8.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mBlog Load (5.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (17.5ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "sixth post"], ["content", "sixth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:33:05.689653"], ["updated_at", "2018-11-29 21:33:05.689653"]]
+  [1m[35m (17.9ms)[0m  commit transaction
+  [1m[36mUser Load (8.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (4.1ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.4ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "sixth post"], ["content", "sixth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:33:09.697287"], ["updated_at", "2018-11-29 21:33:09.697287"]]
+  [1m[36m (13.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (8.9ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (3.4ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.5ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 2], ["blog_id", 5], ["created_at", "2018-11-29 21:33:26.453987"], ["updated_at", "2018-11-29 21:33:26.453987"]]
+  [1m[36m (14.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (8.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mBlog Load (3.3ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.7ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 3], ["blog_id", 4], ["created_at", "2018-11-29 21:34:26.817140"], ["updated_at", "2018-11-29 21:34:26.817140"]]
+  [1m[36m (15.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (9.9ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mBlog Load (5.4ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (17.5ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 3], ["blog_id", 4], ["created_at", "2018-11-29 21:34:29.880554"], ["updated_at", "2018-11-29 21:34:29.880554"]]
+  [1m[35m (13.2ms)[0m  commit transaction
+  [1m[36mUser Load (8.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.7ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 3], ["blog_id", 5], ["created_at", "2018-11-29 21:34:33.926571"], ["updated_at", "2018-11-29 21:34:33.926571"]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (11.0ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mBlog Load (4.3ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (12.9ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 3], ["blog_id", 2], ["created_at", "2018-11-29 21:34:36.733772"], ["updated_at", "2018-11-29 21:34:36.733772"]]
+  [1m[35m (14.7ms)[0m  commit transaction
+  [1m[36mPost Load (9.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mBlog Load (4.1ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (11.5ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "eigth post"], ["content", "eigth content"], ["user_id", 3], ["blog_id", 1], ["created_at", "2018-11-29 21:34:44.712100"], ["updated_at", "2018-11-29 21:34:44.712100"]]
+  [1m[35m (12.2ms)[0m  commit transaction
+  [1m[36mPost Load (12.0ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (4.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mPost Load (3.9ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mPost Load (3.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (3.6ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mMessage Load (19.3ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mPost Load (3.8ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (4.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mPost Load (3.2ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (3.1ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.7ms)[0m  [1mINSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["post_id", 1], ["user_id", 1], ["author", "Andrew"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:44:24.608589"]]
+  [1m[35m (11.1ms)[0m  commit transaction
+  [1m[36mPost Load (10.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (3.6ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (3.7ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 1], ["user_id", 3], ["author", "ACCndrew"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:44:50.282446"]]
+  [1m[36m (17.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (11.5ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (10.9ms)[0m  [1mINSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["post_id", 1], ["user_id", 3], ["author", "Austin"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:44:55.731183"]]
+  [1m[35m (15.3ms)[0m  commit transaction
+  [1m[36mPost Load (9.6ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.8ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 1], ["user_id", 3], ["author", "Austin"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:45:13.330015"]]
+  [1m[36m (16.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mMessage Load (10.8ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (3.6ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (19.4ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 2], ["user_id", 3], ["author", "Andy"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:45:42.554679"]]
+  [1m[36m (13.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (9.2ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.5ms)[0m  [1mINSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["post_id", 2], ["user_id", 3], ["author", "Andy"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:45:43.906998"]]
+  [1m[35m (16.4ms)[0m  commit transaction
+  [1m[36mPost Load (10.0ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (3.9ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 2], ["user_id", 3], ["author", "Andy"], ["message", "Certifiedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:45:44.617734"]]
+  [1m[36m (15.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mMessage Load (15.2ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (2.9ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (5.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.7ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 14], ["user_id", 4], ["author", "gergergesd"], ["message", "qwrewrewriedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:46:47.982317"]]
+  [1m[36m (16.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (3.7ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.3ms)[0m  [1mINSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["post_id", 14], ["user_id", 4], ["author", "mjjgherhgergergesd"], ["message", "343qwrewrewriedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:46:59.079161"]]
+  [1m[35m (18.7ms)[0m  commit transaction
+  [1m[36mPost Load (9.9ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (16.7ms)[0m  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 14], ["user_id", 4], ["author", "mheqqgherhgergergesd"], ["message", "343bvnvbnriedqweqwe"], ["created_at", 2018.0], ["updated_at", "2018-11-29 21:47:10.049342"]]
+  [1m[36m (15.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mMessage Load (9.5ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mMessage Load (3.6ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mPost Load (2.5ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mBlog Load (4.5ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mMessage Load (3.6ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mBlog Load (10.2ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mMessage Load (3.9ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (3.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (3.5ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (10.3ms)[0m  [1mUPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["user_id", nil], ["updated_at", "2018-11-29 22:16:10.324228"], ["id", 2]]
+  [1m[35m (11.9ms)[0m  commit transaction
+  [1m[36mPost Load (9.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (3.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (12.4ms)[0m  [1mUPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["user_id", 5], ["updated_at", "2018-11-29 22:16:31.135485"], ["id", 2]]
+  [1m[35m (14.7ms)[0m  commit transaction
+  [1m[36mPost Load (11.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (2.7ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (9.7ms)[0m  UPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["content", "This has been updated"], ["updated_at", "2018-11-29 22:17:53.350183"], ["id", 2]]
+  [1m[36m (14.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (10.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mBlog Load (3.1ms)[0m  SELECT "blogs".* FROM "blogs" INNER JOIN "posts" ON "blogs"."id" = "posts"."blog_id" WHERE "posts"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (3.9ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 3]]
+  [1m[36mPost Load (3.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (3.9ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMessage Load (4.0ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 3]]
+  [1m[36mBlog Load (2.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mPost Load (3.5ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."blog_id" = ?  [["blog_id", 5]]
+  [1m[36mBlog Load (3.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mBlog Load (3.8ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mOwner Load (2.7ms)[0m  [1mSELECT "owners".* FROM "owners"[0m
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (3.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mSQL (3.5ms)[0m  [1mUPDATE "owners" SET "user" = 3[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mSQL (4.4ms)[0m  [1mUPDATE "owners" SET "user" = 3[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mSQL (26.1ms)[0m  [1mUPDATE "owners" SET "user_id" = 3[0m
+  [1m[35mOwner Load (10.5ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mBlog Load (2.8ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"[0m
+  [1m[35mUser Load (2.4ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"[0m
+  [1m[35mUser Load (3.5ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id"[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id"
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id"[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT users.name FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT user.name FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT name FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT name FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)
+  [1m[36mPost Load (3.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users"."first_name" FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.7ms)[0m  SELECT "users"."first_name" FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT "users"."first_name" FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mBlog Load (2.7ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mOwner Load (2.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."blog_id" = ?  [["blog_id", 1]]
+  [1m[36mBlog Load (2.8ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mOwner Load (2.9ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."blog_id" = ?  [["blog_id", 1]]
+  [1m[36mBlog Load (3.7ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mOwner Load (3.4ms)[0m  SELECT * FROM "owners" WHERE "owners"."blog_id" = ?  [["blog_id", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 1)[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mComment Load (6.5ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20181130020902)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (9.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181130020902"]]
+  [1m[36m (12.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (3.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+[0m
+  [1m[35m (3.7ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+
+  [1m[36m (3.8ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (4.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+
+  [1m[36mComment Load (14.8ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (11.6ms)[0m  [1mINSERT INTO "comments" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-11-30 02:12:09.010257"], ["updated_at", "2018-11-30 02:12:09.010257"]]
+  [1m[35m (14.1ms)[0m  commit transaction
+  [1m[36mComment Load (11.1ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mComment Load (3.4ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 1]]
+  [1m[36m (16.5ms)[0m  [1mcommit transaction[0m
+  [1m[36mPost Load (14.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (4.2ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mUser Load (5.4ms)[0m  [1mSELECT users.first_name, messages:message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (4.4ms)[0m  SELECT users.first_name, message:message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT users.first_name, messages:message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id"
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT "users"."first_name" FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.9ms)[0m  SELECT first_name, last_name FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT first_name, last_name, email_address FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT first_name, last_name, email_address, messages.message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mBlog Load (3.5ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMessage Load (3.7ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id"
+  [1m[36mBlog Load (3.1ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMessage Load (4.7ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE "messages"."post_id" IN (SELECT "posts"."id" FROM "posts" WHERE "posts"."blog_id" = ?)  [["blog_id", 2]]
+  [1m[36mBlog Load (4.6ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMessage Load (3.5ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" INNER JOIN "users" ON "users"."id" = "messages"."user_id" WHERE "messages"."post_id" IN (SELECT "posts"."id" FROM "posts" WHERE "posts"."blog_id" = ?)  [["blog_id", 2]]
+  [1m[36mBlog Load (6.0ms)[0m  [1mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMessage Load (4.8ms)[0m  SELECT * FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" INNER JOIN "users" ON "users"."id" = "messages"."user_id" WHERE "messages"."post_id" IN (SELECT "posts"."id" FROM "posts" WHERE "posts"."blog_id" = ?)  [["blog_id", 2]]
+  [1m[36mActiveRecord::SchemaMigration Load (4.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+[0m
+  [1m[35m (2.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+
+  [1m[36m (2.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (2.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+
+  [1m[36m (2.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (2.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20181130020902)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (8.0ms)[0m  DROP TABLE "comments"
+  [1m[36mSQL (2.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181130020902"]]
+  [1m[35m (10.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (2.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20181130174632)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (10.7ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "imageable_id" integer, "imageable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX "index_comments_on_imageable_type_and_imageable_id" ON "comments" ("imageable_type", "imageable_id")[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181130174632"]]
+  [1m[36m (14.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+[0m
+  [1m[35m (4.9ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (4.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (3.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (3.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (17.3ms)[0m  INSERT INTO "comments" ("imageable_id", "imageable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["imageable_id", 1], ["imageable_type", "User"], ["created_at", "2018-11-30 17:50:19.483359"], ["updated_at", "2018-11-30 17:50:19.483359"]]
+  [1m[36m (15.9ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddCommenttoComment (20181130175108)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (20.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181130175108"]]
+  [1m[35m (10.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+
+  [1m[36m (2.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+[0m
+  [1m[35m (2.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+
+  [1m[36m (2.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+[0m
+  [1m[35m (2.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+
+  [1m[36mComment Load (12.9ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mComment Load (3.5ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36m (2.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddCommenttoComment (20181130175108)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (7.4ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20181130175108"]]
+  [1m[36m (10.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (6.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (2.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (2.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20181130174632)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (23.5ms)[0m  DROP TABLE "comments"
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181130174632"]]
+  [1m[35m (11.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (3.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (3.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (5.8ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20181130174632)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (12.2ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar, "imageable_id" integer, "imageable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_comments_on_imageable_type_and_imageable_id" ON "comments" ("imageable_type", "imageable_id")[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181130174632"]]
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_imageable_type_and_imageable_id' AND type='index'
+[0m
+  [1m[35m (3.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_post_id' AND type='index'
+
+  [1m[36m (5.7ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_user_id' AND type='index'
+[0m
+  [1m[35m (6.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_owners_on_blog_id' AND type='index'
+
+  [1m[36m (2.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_blog_id' AND type='index'
+[0m
+  [1m[36mComment Load (17.7ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (15.6ms)[0m  [1mINSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["imageable_id", 1], ["imageable_type", "User"], ["comment", "AHFIJFDFD"], ["created_at", "2018-11-30 17:55:23.037100"], ["updated_at", "2018-11-30 17:55:23.037100"]]
+  [1m[35m (16.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.4ms)[0m  INSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["imageable_id", 1], ["imageable_type", "Blog"], ["comment", "BLOGAHFIJFDFD"], ["created_at", "2018-11-30 17:55:33.259161"], ["updated_at", "2018-11-30 17:55:33.259161"]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (14.7ms)[0m  [1mINSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["imageable_id", 1], ["imageable_type", "Message"], ["comment", "MessageCCBLOGAHFIJFDFD"], ["created_at", "2018-11-30 17:55:46.275790"], ["updated_at", "2018-11-30 17:55:46.275790"]]
+  [1m[35m (21.3ms)[0m  commit transaction
+  [1m[36mComment Load (3.5ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.9ms)[0m  [1mINSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["imageable_id", 2], ["imageable_type", "Post"], ["comment", "PostMessageCCBLOGAHFIJFDFD"], ["created_at", "2018-11-30 17:56:09.465106"], ["updated_at", "2018-11-30 17:56:09.465106"]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36mComment Load (3.7ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mUser Load (7.6ms)[0m  SELECT * FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "User"]]
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (11.1ms)[0m  [1mINSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["imageable_id", 3], ["imageable_type", "Post"], ["comment", "PostMessageCCBLOGAHFIJFDFD"], ["created_at", "2018-11-30 19:00:18.631331"], ["updated_at", "2018-11-30 19:00:18.631331"]]
+  [1m[35m (8.1ms)[0m  commit transaction
+  [1m[36mComment Load (5.0ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "User"]]
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "User"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (3.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email_address") = LOWER('sheep@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (11.5ms)[0m  UPDATE "users" SET "first_name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["first_name", "Sheepie"], ["updated_at", "2018-11-30 19:01:28.076672"], ["id", 1]]
+  [1m[36m (11.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (3.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "User"]]
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE "users"."user" = 2  [["imageable_type", "User"]]
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (4.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE "users"."user" = 2  [["imageable_type", "User"]]
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (4.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE "users"."user" = 1  [["imageable_type", "User"]]
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT  "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE "users"."id" = ? LIMIT 1[0m  [["imageable_type", "User"], ["id", 2]]
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "User"]]
+  [1m[36mComment Load (3.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.9ms)[0m  [1mINSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["imageable_id", 2], ["imageable_type", "User"], ["comment", "Hello"], ["created_at", "2018-11-30 19:04:38.336625"], ["updated_at", "2018-11-30 19:04:38.336625"]]
+  [1m[35m (8.1ms)[0m  commit transaction
+  [1m[36mUser Load (5.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "User"]]
+  [1m[35mUser Load (2.9ms)[0m  SELECT * FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "User"]]
+  [1m[36mUser Load (4.8ms)[0m  [1mSELECT * FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "User"]]
+  [1m[35mUser Load (3.6ms)[0m  SELECT * FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (1)  [["imageable_type", "User"]]
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (user.id=1)[0m  [["imageable_type", "User"]]
+  [1m[35mUser Load (3.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (users.id=1)  [["imageable_type", "User"]]
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (users.id=1)[0m  [["imageable_type", "User"]]
+  [1m[35mUser Load (4.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (users.id=1)  [["imageable_type", "User"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (5.0ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email_address") = LOWER('sheep@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (10.4ms)[0m  [1mUPDATE "users" SET "first_name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["first_name", "Sheep2"], ["updated_at", "2018-11-30 19:08:50.858234"], ["id", 1]]
+  [1m[35m (24.1ms)[0m  commit transaction
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMessage Load (3.3ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.5ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (2.7ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (3)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.6ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (3)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.0ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (4)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (5.1ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (4)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.7ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=2)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.7ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.2ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (substr(players.name, 1, 1) = 'D')  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.8ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (substr(players.name, 1, 1) = 'D')[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (4.2ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (substr(messagess.name, 1, 1) = 'D')  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (5.3ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (substr(messages.name, 1, 1) = 'D')[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (4.1ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (substr(message.name, 1, 1) = 'D')  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.5ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.5ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mUser Load (6.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "comments" ON "comments"."imageable_id" = "users"."id" AND "comments"."imageable_type" = ? WHERE (users.id=1)[0m  [["imageable_type", "User"]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (6.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email_address") = LOWER('sheep@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mMessage Load (3.2ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.3ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.1ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (4.4ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mMessage Load (3.3ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.4ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mMessage Load (3.3ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mMessage Load (3.4ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mMessage Load (4.4ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35mMessage Load (3.7ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (10.4ms)[0m  [1mUPDATE "messages" SET "message" = ?, "updated_at" = ? WHERE "messages"."id" = ?[0m  [["message", "I changed thiswioehgfoisdjgsjgsdfg"], ["updated_at", "2018-11-30 19:20:19.180542"], ["id", 1]]
+  [1m[35m (16.6ms)[0m  commit transaction
+  [1m[36mMessage Load (3.0ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (user_id=1)[0m  [["imageable_type", "Message"]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (16.3ms)[0m  [1mUPDATE "messages" SET "message" = ?, "updated_at" = ? WHERE "messages"."id" = ?[0m  [["message", "I changed this.. really I did"], ["updated_at", "2018-11-30 19:20:30.919865"], ["id", 1]]
+  [1m[35m (9.3ms)[0m  commit transaction
+  [1m[36mComment Load (4.0ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mMessage Load (2.8ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (4.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mBlog Load (6.9ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mMessage Load (2.9ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.8ms)[0m  INSERT INTO "comments" ("imageable_id", "imageable_type", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["imageable_id", 4], ["imageable_type", "Message"], ["comment", "Delete this"], ["created_at", "2018-11-30 19:22:10.617532"], ["updated_at", "2018-11-30 19:22:10.617532"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mComment Load (4.2ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMessage Load (3.4ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mMessage Load (4.3ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mComment Load (2.9ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mMessage Load (3.7ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.7ms)[0m  SELECT 4 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.5ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.0ms)[0m  SELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.0ms)[0m  [1mSELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (4.5ms)[0m  SELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.7ms)[0m  SELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.7ms)[0m  DELETE FROM "messages" WHERE "messages"."id" = ?  [["id", nil]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mComment Load (5.0ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mMessage Load (3.1ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mPost Load (4.7ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mMessage Load (3.5ms)[0m  [1mSELECT 7 FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.5ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (2.7ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.3ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.6ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (12.3ms)[0m  [1mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 7]]
+  [1m[35m (15.1ms)[0m  commit transaction
+  [1m[36mMessage Load (4.3ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.4ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mSQL (3.6ms)[0m  [1mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 7]]
+  [1m[35mMessage Load (3.5ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.4ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (2.9ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.6ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (*)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (*)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.0ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (7)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.2ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (id=7)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.4ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (message.id=7)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.7ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (messages.id=7)[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.6ms)[0m  SELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (messages.id=7)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.6ms)[0m  [1mSELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ?[0m  [["imageable_type", "Message"]]
+  [1m[35mMessage Load (3.6ms)[0m  SELECT * FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (messages.id=7)  [["imageable_type", "Message"]]
+  [1m[36mMessage Load (3.5ms)[0m  [1mSELECT "messages".* FROM "messages" INNER JOIN "comments" ON "comments"."imageable_id" = "messages"."id" AND "comments"."imageable_type" = ? WHERE (messages.id=7)[0m  [["imageable_type", "Message"]]
+  [1m[35mComment Load (2.6ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mComment Load (4.5ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (19.4ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 7]]
+  [1m[35m (8.3ms)[0m  commit transaction
+  [1m[36mBlog Load (31.8ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mOwner Load (3.8ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mPost Load (9.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mBlog Load (5.9ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mBlog Load (4.0ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (12.3ms)[0m  [1mINSERT INTO "posts" ("title", "content", "blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Addingqweqweqweqweqweqweqw"], ["content", "asdijasfojsdfsldkfjsldfskj"], ["blog_id", 2], ["user_id", 2], ["created_at", "2018-12-02 01:19:21.542623"], ["updated_at", "2018-12-02 01:19:21.542623"]]
+  [1m[35m (15.3ms)[0m  commit transaction
+  [1m[36mPost Load (12.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mBlog Load (3.6ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mPost Load (4.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mBlog Load (5.0ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mUser Load (4.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (14.3ms)[0m  [1mINSERT INTO "posts" ("title", "content", "blog_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "asdkjkdsfsd"], ["content", "asjdfksjflskdfjskldfjs"], ["blog_id", 3], ["user_id", 3], ["created_at", "2018-12-02 01:22:48.811474"], ["updated_at", "2018-12-02 01:22:48.811474"]]
+  [1m[35m (23.0ms)[0m  commit transaction
+  [1m[36mPost Load (10.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mMessage Load (4.2ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mPost Load (4.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (12.5ms)[0m  INSERT INTO "messages" ("author", "message", "post_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["author", "WEHWEHWEHWIRFD"], ["message", "ADSFDFDFEFEGBBCC"], ["post_id", 1], ["user_id", 3], ["created_at", 2018.0], ["updated_at", "2018-12-02 01:24:37.141154"]]
+  [1m[36m (20.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (21.4ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (13.2ms)[0m  [1mINSERT INTO "messages" ("author", "message", "post_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["author", "WEHWEHWEHWIRFD"], ["message", "ADSFDFDFEFEGBBCC"], ["post_id", 1], ["user_id", 3], ["created_at", 2018.0], ["updated_at", "2018-12-02 01:26:06.348452"]]
+  [1m[35m (31.3ms)[0m  commit transaction
+  [1m[36mPost Load (12.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (3.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mPost Load (3.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (4.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (19.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (19.8ms)[0m  [1mUPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["user_id", 3], ["updated_at", "2018-12-02 01:26:22.048900"], ["id", 2]]
+  [1m[35m (17.0ms)[0m  commit transaction
+  [1m[36mPost Load (15.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mBlog Load (3.7ms)[0m  SELECT "blogs".* FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id"
+  [1m[36mBlog Load (5.0ms)[0m  [1mSELECT * FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id"[0m
+  [1m[35mBlog Load (4.2ms)[0m  SELECT * FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id"
+  [1m[36mBlog Load (3.1ms)[0m  [1mSELECT * FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id" WHERE (user_id=3)[0m
+  [1m[35mBlog Load (4.2ms)[0m  SELECT * FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id" WHERE (user_id=1)
+  [1m[36mBlog Load (4.7ms)[0m  [1mSELECT * FROM "blogs" INNER JOIN "owners" ON "owners"."blog_id" = "blogs"."id" INNER JOIN "users" ON "users"."id" = "owners"."user_id" WHERE (user_id=3)[0m
+  [1m[35mPost Load (3.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (3.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (4.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mMessage Load (4.6ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT first_name, last_name, email_address, messages.message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)
+  [1m[36mUser Load (5.0ms)[0m  [1mSELECT first_name, last_name, email_address, messages.message FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" WHERE (blog_id = 5)[0m
+  [1m[35mUser Load (5.0ms)[0m  SELECT "users"."first_name" FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id" WHERE (blog_id = 5)
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"[0m
+  [1m[35mPost Load (3.9ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mPost Load (4.2ms)[0m  [1mSELECT * FROM "posts"[0m
+  [1m[35mPost Load (4.1ms)[0m  SELECT * FROM "posts" WHERE (blog_id=5)
+  [1m[36mPost Load (4.0ms)[0m  [1mSELECT * FROM "posts" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (4.3ms)[0m  SELECT * FROM "posts"
+  [1m[36mPost Load (3.8ms)[0m  [1mSELECT * FROM "posts" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (4.2ms)[0m  SELECT * FROM "posts" WHERE (blog_id=5)
+  [1m[36mPost Load (5.2ms)[0m  [1mSELECT * FROM "posts" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (6.3ms)[0m  SELECT *, users.first_name FROM "posts" WHERE (blog_id=5)
+  [1m[36mPost Load (4.9ms)[0m  [1mSELECT *, first_name FROM "posts" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (3.8ms)[0m  SELECT * FROM "posts" WHERE (blog_id=5)
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"
+  [1m[36mUser Load (10.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id"[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id"
+  [1m[36mPost Load (4.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (3.5ms)[0m  SELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=1)
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=3)[0m
+  [1m[35mUser Load (3.6ms)[0m  SELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=4)
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT * FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=5)[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT "users"."first_name" FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=5)
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT "users"."first_name" FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=3)[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT "users"."first_name" FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=2)
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT "users"."first_name" FROM "users" INNER JOIN "messages" ON "messages"."user_id" = "users"."id" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (blog_id=2)[0m
+  [1m[35mPost Load (3.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mPost Load (3.7ms)[0m  [1mSELECT "posts".* FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id"[0m
+  [1m[35mPost Load (3.7ms)[0m  SELECT * FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id"
+  [1m[36mPost Load (3.5ms)[0m  [1mSELECT * FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id"[0m
+  [1m[35mPost Load (4.5ms)[0m  SELECT * FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (blog_id=5)
+  [1m[36mPost Load (5.3ms)[0m  [1mSELECT users.first_name FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (4.5ms)[0m  SELECT users.first_name, "posts"."title" FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (blog_id=5)
+  [1m[36mPost Load (4.9ms)[0m  [1mSELECT users.first_name, "posts"."title", "posts"."content" FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (blog_id=5)[0m
+  [1m[35mPost Load (3.7ms)[0m  SELECT users.first_name, users.last_name, "posts"."title", "posts"."content" FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (blog_id=5)
+  [1m[36mBlog Load (4.3ms)[0m  [1mSELECT "blogs".* FROM "blogs"[0m
+  [1m[35mBlog Load (3.5ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mOwner Load (4.0ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (3.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (3.9ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (4.8ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id"[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "owners"."blog_id"
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)[0m
+  [1m[35mUser Load (4.9ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mBlog Load (3.9ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" WHERE (blog_id=1)
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" INNER JOIN "owners" ON "owners"."user_id" = "users"."id"[0m
+  [1m[35mUser Load (4.6ms)[0m  SELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" INNER JOIN "owners" ON "owners"."user_id" = "users"."id"
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" WHERE (blog_id=1)[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT * FROM "users" INNER JOIN "posts" ON "posts"."user_id" = "users"."id" INNER JOIN "blogs" ON "blogs"."id" = "posts"."blog_id" WHERE (blog_id=1)[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mOwner Load (4.3ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."user_id" IN (1, 2, 3, 4, 5)
+  [1m[36mBlog Load (6.0ms)[0m  [1mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" IN (1, 2, 3, 4, 5)[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT * FROM "users"
+  [1m[36mOwner Load (3.5ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."user_id" IN (1, 2, 3, 4, 5)[0m
+  [1m[35mBlog Load (3.5ms)[0m  SELECT "blogs".* FROM "blogs" WHERE "blogs"."id" IN (1, 2, 3, 4, 5)
+  [1m[36mUser Load (4.5ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35mPost Load (15.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (1, 2, 3, 4, 5)
+  [1m[36mBlog Load (4.3ms)[0m  [1mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" IN (2, 5, 4, 1, 3)[0m
+  [1m[35mBlog Load (3.8ms)[0m  SELECT "blogs".* FROM "blogs"
+  [1m[36mOwner Load (4.8ms)[0m  [1mSELECT "owners".* FROM "owners" WHERE "owners"."blog_id" IN (1, 2, 3, 4, 5)[0m
+  [1m[35mUser Load (5.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3)
+  [1m[36mBlog Load (6.0ms)[0m  [1mSELECT * FROM "blogs"[0m
+  [1m[35mOwner Load (5.5ms)[0m  SELECT "owners".* FROM "owners" WHERE "owners"."blog_id" IN (1, 2, 3, 4, 5)
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3)[0m
+  [1m[35mOwner Load (4.0ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mOwner Load (4.0ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOwner Load (3.5ms)[0m  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBlog Load (3.8ms)[0m  [1mSELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (11.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (13.6ms)[0m  UPDATE "owners" SET "blog_id" = ?, "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["blog_id", nil], ["user_id", nil], ["updated_at", "2018-12-02 02:14:24.427111"], ["id", 1]]
+  [1m[36m (22.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mOwner Load (10.1ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mOwner Load (3.4ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBlog Load (3.4ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mOwner Load (3.2ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mOwner Load (4.6ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBlog Load (4.5ms)[0m  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mOwner Load (3.2ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mOwner Load (11.5ms)[0m  [1mSELECT "owners".* FROM "owners"[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mOwner Load (4.3ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOwner Load (3.7ms)[0m  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mOwner Load (3.5ms)[0m  [1mSELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35mOwner Load (3.8ms)[0m  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (11.4ms)[0m  [1mUPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?[0m  [["user_id", nil], ["updated_at", "2018-12-02 02:17:04.191264"], ["id", 1]]
+  [1m[35m (16.3ms)[0m  commit transaction
+  [1m[36mOwner Load (10.7ms)[0m  [1mSELECT "owners".* FROM "owners"[0m
+  [1m[35mOwner Load (13.3ms)[0m  SELECT "owners".* FROM "owners"
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id"[0m
+  [1m[35mUser Load (4.2ms)[0m  SELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id"
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT * FROM "users" INNER JOIN "owners" ON "owners"."user_id" = "users"."id" WHERE (blog_id=1)[0m

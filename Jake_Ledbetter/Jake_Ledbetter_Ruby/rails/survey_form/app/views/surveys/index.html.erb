@@ -1,0 +1,23 @@
+<h1>Rails Survey Form</h1>
+<form action='/process' method='post'>
+	   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">\
+	   <h2>Your Name</h2>
+	   <input type='text' name='name'>
+	   <h2>Dojo Location</h2>
+	   <select name='location'>
+	   		<option value='dallas'>dallas</option>
+	   		<option value='new york'>New York</option>
+	   		<option value='seattle'>seattle</option>
+	   	</select>
+	   	<h2>Favorite Language</h2>
+	   	<select name='lang'>
+	   		<option value="javascript">javascript</option>
+	   		<option value="ruby">ruby</option>
+	   		<option value="python">python</option>
+	   		<option value='html'>html</option>
+	   	</select>
+
+	   	<h2>Comments</h2>
+	   	<textarea rows='3' cols='30' name="comment"></textarea>
+	   	<input type='submit'>
+</form>

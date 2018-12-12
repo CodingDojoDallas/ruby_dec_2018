@@ -1,0 +1,8 @@
+<h1>Edit A User</h1>
+<a href="/users/<%= @user.id %>" data-method="delete">Delete this user!</a>
+<form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" value="<%=@user.name%>" name="name">
+    <input type='submit' value='Update'>
+</form>

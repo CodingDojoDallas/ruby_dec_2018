@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  shade: one
+  shade_type: Shade
+
+two:
+  comment: MyString
+  shade: two
+  shade_type: Shade

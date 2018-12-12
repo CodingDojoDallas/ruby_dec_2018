@@ -1,0 +1,12 @@
+<h1>Survey#index</h1>
+<form action='/' method='post'>
+
+	<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token %>'>
+	<label for='fname'>first_name</label>
+	<input type='text' id='fname' name='user[first_name]' class='fname'>
+	<label for='lname'>last_name</label>
+	<input type='text' id='lname' name='user[last_name]' class='lname'>
+	<label for='email'>email</label>
+	<input type='text' id='email' name='user[email_address]' class='email'>
+	<input type='submit' value='submit'>
+</form>
