@@ -1,0 +1,22 @@
+rails g model Friend user:references friend_id:integer
+
+User.create(first_name:"Jose", last_name:"Altuve")
+User.create(first_name:"Alex", last_name:"Bregman")
+User.create(first_name:"George", last_name:"Springer")
+User.create(first_name:"Carlos", last_name:"Correa")
+User.create(first_name:"Evan", last_name:"Gattis")
+User.create(first_name:"Marwin", last_name:"Gonzales")
+
+Friend.create(user:User.first, pal:User.third)
+
+User.first
+
+User.first.pals - should display all the friend information of the first user (include first name, last name of all of the first users friends)
+
+Find out how you can retrieve all users who are NOT a friend with the first User
+User.where.not(id: User.first.pals)
+User.where.not(id: User.first.pals_by)
+
+
+User.first.pals.where("pal_id != ?", 2)
+User.where.not("id = ?", 2)

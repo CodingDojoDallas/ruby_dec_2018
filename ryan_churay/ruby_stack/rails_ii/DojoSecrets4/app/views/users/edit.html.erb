@@ -1,0 +1,16 @@
+
+<form class="form-group" action="/users/<%= session[:user_id] %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label class='form-control' for="name">Name</label>
+  <input class='form-control' type="text" name="user[name]" value="<%= @user.name %>">
+  <label class='form-control' for="email">Email</label>
+  <input class='form-control' type="text" name="user[email]" value="<%= @user.email %>">
+  <button type="submit" name="Update">Update</button>
+</form>
+<form class="form-group" action="/users/<%= current_user.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button type="submit" name="Delete Account">Delete Account</button>
+</form>

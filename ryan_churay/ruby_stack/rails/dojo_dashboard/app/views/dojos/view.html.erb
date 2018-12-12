@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+
+<div class="col-lg-5 bg-primary">
+  <h1><%= @dojo.branch %></h1>
+  <div class="row m-1">
+    <h3 class="d-inline-block">Street Address:</h3>
+    <h3 class="d-inline-block"> <%= @dojo.street %></h3>
+  </div>
+  <div class="row m-1">
+    <h3 class="d-inline-block">City:</h3>
+    <h3 class="d-inline-block"> <%= @dojo.city %></h3>
+  </div>
+  <div class="row m-1">
+    <h3 class="d-inline-block">State:</h3>
+    <h3 class="d-inline-block"> <%= @dojo.state %></h3>
+  </div>
+  <a href="/dojos" class='btn btn-success m-1'>Go Back!</a>
+  <a href="/dojos/<%= @dojo.id %>/edit" class='btn btn-dark m-1'>Edit</a>
+</div>
+
+<div class="container">
+  <h1>Class List</h1>
+  <table class="table col-lg-10">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.first_name %></td>
+          <td><%= student.last_name %></td>
+          <td><%= student.email %></td>
+          <td>
+            <a class='badge badge-success' href="/dojos/<%= student.dojo_id %>/students/<%= student.id %>">Show</a>||
+            <a class='badge badge-primary' href="/dojos/<%= student.dojo_id %>/students/<%= student.id %>/edit">Edit</a>||
+            <a href="/dojos/<%= student.dojo_id %>/students/<%= student.id %>" class='badge badge-danger' data-method="delete"> Destroy</a>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <a href="/dojos/<%= @dojo.id %>/students/new" class='btn btn-primary m-1'>Add Student</a>
+
+</div>
