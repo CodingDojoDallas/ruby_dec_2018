@@ -1,5 +1,5 @@
 class Project
-  attr_accessor :name, :desc
+  attr_accessor :name, :descproject.rb
   def initialize(name, desc)
     @name = name
     @desc = desc

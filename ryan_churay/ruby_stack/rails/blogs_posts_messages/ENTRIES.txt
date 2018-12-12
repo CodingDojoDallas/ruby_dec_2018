@@ -1,0 +1,60 @@
+Blog.create(name:'Algorithm 101', description:'a walkthrough of basic algorithms')
+Blog.create(name:'Rails 101', description:'a walkthrough of basic rails setup')
+Blog.create(name:'Are They Safe', description:'guide book for foraging mushrooms')
+Blog.create(name:'Hitting with Power', description:'lessons on increasing hitting power')
+
+Message.create(author:'Ryan', message:'this is a new message', post:Post.find(1))
+Message.create(author:'Jose', message:'what is an algorithm', post:Post.find(1))
+Post.create(title:'Swing for Contact', content:'I do not think you should focus on power but instead on contact', blog:Blog.find(4))
+
+User.create(first_name: 'Jose', last_name: 'Altuve', email: 'jose@astros.com')
+User.create(first_name: 'George', last_name: 'Springer', email: 'george@astros.com')
+User.create(first_name: 'Carlos', last_name: 'Correa', email: 'carlos@astros.com')
+User.create(first_name: 'Josh', last_name: 'Reddick', email: 'josh@astros.com')
+User.create(first_name: 'Alex', last_name: 'Bregman', email: 'alex@astros.com')
+User.create(first_name: 'Marwin', last_name: 'Gonzales', email: 'marwin@astros.com')
+
+Owner.create(user:User.last, blog:Blog.fifth)
+blogs = Blog.all
+blogs.each do |b|
+  Owner.create(user:User.third, blog:b)
+end
+
+Post.create(title:'First Post', content:'The rain in spain stays mainly in the plain', user:User.first ,blog:Blog.find(2))
+Post.create(title:'Second Post', content:'The rain in spain stays mainly in the mountains', user:User.first ,blog:Blog.find(2))
+Post.create(title:'Third Post', content:'The rain in spain stays mainly in the sea', user:User.first ,blog:Blog.find(2))
+
+Post.create(title:'Post for Blog', content:'The rain in spain stays mainly in the sea', user:User.third, blog:Blog.fourth)
+Post.create(title:'Again', content:'The rain in spain stays mainly in the sea', user:User.third, blog:Blog.third)
+Post.create(title:'Get More', content:'The rain in spain stays mainly in the sea', user:User.third, blog:Blog.first)
+Post.create(title:'Solon Inbound', content:'The rain in spain stays mainly in the sea', user:User.second, blog:Blog.last)
+Post.create(title:'Get Wrecked', content:'The rain in spain stays mainly in the sea', user:User.second, blog:Blog.last)
+
+Message.create(author:'Anonymous', message:'Riya are you reading this????', user:User.fourth, post:Post.last)
+Message.create(author:'Anonymous', message:'Again what should i say', user:User.fourth, post:Post.last)
+Message.create(author:'Anonymous', message:'Bye bye Lil Sebastian', user:User.fourth, post:Post.last)
+
+Post.second.update(user:User.last)
+
+Queries
+-Retrieve all blogs owned by the 3rd user
+User.find(3).blogs_o
+
+-Retrieve all posts that were created by the 3rd user
+Post.joins(:user).where("user_id = 3")
+
+-Retrieve all messages left by the 3rd user
+Message.joins(:user).where("user_id = 3")
+
+-Retrieve all posts associated with the blog id 5 as well as who left these posts
+Blog.joins(:users_o_p).select("*")
+Blog.joins(:users_p).select("title as post_title, name as blog_name, first_name")
+
+-Retrieve all messages associated with the blog id 5 with all the user information of those who left the message
+Post.joins(:users_m).select("first_name, last_name, email, message").where("blog_id = 1")
+
+-Grab all user information of those that own the first blog (make this work by allowing Blog.first.owners to work)
+Blog.first.users_o
+
+-Change is so the first blog is no longer owned by the first user
+Owner.find_by(user: User.first, blog:Blog.first).destroy

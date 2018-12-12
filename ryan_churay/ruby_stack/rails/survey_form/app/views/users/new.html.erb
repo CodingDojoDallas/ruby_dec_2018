@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<form class='col-lg-5' action='/users/create' method='post'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="name">Your Name:</label>
+    <input type="text" name="user[name]" value='' class="form-control" id="name" placeholder="Full Name">
+  </div>
+  <div class="form-group">
+    <label for="location">Dojo Location</label>
+    <select class="form-control" name="user[dojo]" id="location">
+      <option>Chicago</option>
+      <option>Dallas</option>
+      <option>Seattle</option>
+      <option>Silicon Valley</option>
+      <option>Tulsa</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="language">Favorite Language</label>
+    <select multiple class="form-control" name="user[language]" id="language">
+      <option>Javascript</option>
+      <option>Python</option>
+      <option>Ruby</option>
+      <option>Mean</option>
+      <option>Swift</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="comment">Tell Us About Yourself</label>
+    <textarea class="form-control" name="user[comment]" id="about" rows="3"></textarea>
+  </div>
+  <input class="btn btn-primary" type='submit' value="Submit">
+</form>
