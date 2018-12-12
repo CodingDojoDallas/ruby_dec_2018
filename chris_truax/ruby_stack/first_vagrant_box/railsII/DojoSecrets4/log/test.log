@@ -19016,3 +19016,1401 @@ Redirected to http://test.host/users/new
 Filter chain halted as :require_login rendered or redirected
 Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
   [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$27F4VCTI6hl03yQzrfI87uYP7VaZDVBSc.NeJXh4fmzBTnWG1Dz/i"], ["created_at", "2018-12-12 16:24:03.327372"], ["updated_at", "2018-12-12 16:24:03.327372"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"170"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$CvSQMIvlwey1N.13n5dABeQwB1kyrmqsoq1u4MP1sDC5kNCAHMwiO"], ["created_at", "2018-12-12 16:24:03.347030"], ["updated_at", "2018-12-12 16:24:03.347030"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"171"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$0uncWAHlI7HQu0eLPJtWhOVQTy83jJBlTIdQC19NnbJJjS54bGBRi"], ["created_at", "2018-12-12 16:24:03.358473"], ["updated_at", "2018-12-12 16:24:03.358473"]]
+  [1m[35m (0.8ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#update as HTML
+  Parameters: {"id"=>"172"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$NjyuDXW9FFEvHKgjxi0f9ew7ce5EyN08BqeyA4OAPr0NnaD0sojq2"], ["created_at", "2018-12-12 16:24:03.374862"], ["updated_at", "2018-12-12 16:24:03.374862"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"173"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$bnsEhgGx3ncsfjLkVkR00eeP5GJ1VFpaIUdAQNnXfQLNEjT7kCKKK"], ["created_at", "2018-12-12 16:24:03.393610"], ["updated_at", "2018-12-12 16:24:03.393610"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"175"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 174]]
+Redirected to http://test.host/users/174
+Filter chain halted as :require_its_yours rendered or redirected
+Completed 302 Found in 28ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$jK4WQIVtzGbRIMLweNtIGurOqAMWz.eJJWJDGfKsxUQWlL6q3g0yy"], ["created_at", "2018-12-12 16:24:03.436851"], ["updated_at", "2018-12-12 16:24:03.436851"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"176"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 175]]
+Redirected to http://test.host/users/175
+Filter chain halted as :require_its_yours rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$bzGPI1dN.rc/v9Xod8LaOu/0aFU8BngHX7bs2PaJX23KjgPdhlZnm"], ["created_at", "2018-12-12 16:24:03.450999"], ["updated_at", "2018-12-12 16:24:03.450999"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by UsersController#update as HTML
+  Parameters: {"id"=>"177"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 176]]
+Redirected to http://test.host/users/176
+Filter chain halted as :require_its_yours rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$NuRsUn4E/AVGroAje/Gd.eD5XqS93BbwCsi75i30kJUsPWTUhg.Xa"], ["created_at", "2018-12-12 16:24:03.465679"], ["updated_at", "2018-12-12 16:24:03.465679"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"178"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 177]]
+Redirected to http://test.host/users/177
+Filter chain halted as :require_its_yours rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$KjpsZCYyQKLk4KgFVvlgAu9kcXlWQZ.ZYo4OyXb8yoKE3MGH8tY2O"], ["created_at", "2018-12-12 16:35:21.543433"], ["updated_at", "2018-12-12 16:35:21.543433"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 178], ["created_at", "2018-12-12 16:35:21.603711"], ["updated_at", "2018-12-12 16:35:21.603711"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"178"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$ou7vs0Mrz52d1CwRPPDRmOgfrixdAz36hdnvTbkO1albfDoJ3Gqnm"], ["created_at", "2018-12-12 16:35:21.625498"], ["updated_at", "2018-12-12 16:35:21.625498"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 179], ["created_at", "2018-12-12 16:35:21.629433"], ["updated_at", "2018-12-12 16:35:21.629433"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"179"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$cEoJhOSdmj1y6Cqpa7ojfujqdy37wFl5WIJP7F0byJqhBJvQfnhEi"], ["created_at", "2018-12-12 16:35:21.641000"], ["updated_at", "2018-12-12 16:35:21.641000"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 180], ["created_at", "2018-12-12 16:35:21.644450"], ["updated_at", "2018-12-12 16:35:21.644450"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"180"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$3EMHXyc/eZP96IbUhIzoF.w0w9abWONAGXt/Z2iad2b/JmBXWL4za"], ["created_at", "2018-12-12 16:35:21.656807"], ["updated_at", "2018-12-12 16:35:21.656807"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 181], ["created_at", "2018-12-12 16:35:21.659961"], ["updated_at", "2018-12-12 16:35:21.659961"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"143"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 181]]
+Redirected to http://test.host/users/181
+Completed 302 Found in 27ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$HKB0r3SPIgtHqk6/5xsLmO6UL6OmnkuFFRUy4zu2yjTcuAZxse4Ky"], ["created_at", "2018-12-12 16:36:16.344341"], ["updated_at", "2018-12-12 16:36:16.344341"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 182], ["created_at", "2018-12-12 16:36:16.402277"], ["updated_at", "2018-12-12 16:36:16.402277"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"182"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$IGjwm1WMJXebXAJvIJgrRekVFAcGFK9Lf2JNIgOEue69jQjIWnfVK"], ["created_at", "2018-12-12 16:36:16.425392"], ["updated_at", "2018-12-12 16:36:16.425392"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 183], ["created_at", "2018-12-12 16:36:16.429891"], ["updated_at", "2018-12-12 16:36:16.429891"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"183"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$5Ue4Nbj16QUVd9FkWTXSbOJ5oaP02LTqUW6OXPzE8ZldxFvENH1Qi"], ["created_at", "2018-12-12 16:36:16.443239"], ["updated_at", "2018-12-12 16:36:16.443239"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 184], ["created_at", "2018-12-12 16:36:16.447928"], ["updated_at", "2018-12-12 16:36:16.447928"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"184"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$9maV5wiQhTKQMl7Qtqdtw.bzhVA.dytwSZFMWs4Zh5TLbEHek4Hui"], ["created_at", "2018-12-12 16:36:16.461368"], ["updated_at", "2018-12-12 16:36:16.461368"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 185], ["created_at", "2018-12-12 16:36:16.468443"], ["updated_at", "2018-12-12 16:36:16.468443"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"147"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 185]]
+Redirected to http://test.host/users/185
+Completed 302 Found in 29ms (ActiveRecord: 0.2ms)
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$KER.GlrU2dyoa0i8lzbFjOpt6oSUrR37uFtVtZT8eF/rG7uRBqcBW"], ["created_at", "2018-12-12 16:37:23.281755"], ["updated_at", "2018-12-12 16:37:23.281755"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 186], ["created_at", "2018-12-12 16:37:23.341450"], ["updated_at", "2018-12-12 16:37:23.341450"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"186"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$3j8xIFeN6nXClC7mML8SE.AFNAyEWBXut41hOI1afMrlxz7HWJzhy"], ["created_at", "2018-12-12 16:37:23.367556"], ["updated_at", "2018-12-12 16:37:23.367556"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 187], ["created_at", "2018-12-12 16:37:23.371873"], ["updated_at", "2018-12-12 16:37:23.371873"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"187"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Yt07AXZcZozwSj6K2YJLxO37t91kTHHJKpCsy.pUII71FFLMI0jUi"], ["created_at", "2018-12-12 16:37:23.405847"], ["updated_at", "2018-12-12 16:37:23.405847"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 188], ["created_at", "2018-12-12 16:37:23.411693"], ["updated_at", "2018-12-12 16:37:23.411693"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"188"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$yHkL62vKpLg2nuu6iTr5qebbgmH7OptBUv6mGVc25CuP6y9EJe6vy"], ["created_at", "2018-12-12 16:37:23.426881"], ["updated_at", "2018-12-12 16:37:23.426881"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 189], ["created_at", "2018-12-12 16:37:23.431641"], ["updated_at", "2018-12-12 16:37:23.431641"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"151"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 189]]
+Redirected to http://test.host/users/189
+Completed 302 Found in 30ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$O1V11Rx0Er2YH6TRKAeUZeAg54P/lojwP9XbdPXKFF4qY/ecIXn4u"], ["created_at", "2018-12-12 16:37:40.729236"], ["updated_at", "2018-12-12 16:37:40.729236"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 190], ["created_at", "2018-12-12 16:37:40.783473"], ["updated_at", "2018-12-12 16:37:40.783473"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"190"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$59ykJOoL4UFU1r.ps58rye5Txw71c4614IBEeDUEKMSV5CqYV94J2"], ["created_at", "2018-12-12 16:37:40.804059"], ["updated_at", "2018-12-12 16:37:40.804059"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 191], ["created_at", "2018-12-12 16:37:40.808848"], ["updated_at", "2018-12-12 16:37:40.808848"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"191"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$zIZrH0Y/NJXHSmOtyakWa./rGqDGbe5IPzLTUQhCfmRj7ImlpcS.C"], ["created_at", "2018-12-12 16:37:40.822503"], ["updated_at", "2018-12-12 16:37:40.822503"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 192], ["created_at", "2018-12-12 16:37:40.826623"], ["updated_at", "2018-12-12 16:37:40.826623"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"192"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$iVhaIRMi9l7D/Ty9ha5txOer9vDq0JABdGDza52SlBDoudZPnZ1im"], ["created_at", "2018-12-12 16:37:40.858048"], ["updated_at", "2018-12-12 16:37:40.858048"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 193], ["created_at", "2018-12-12 16:37:40.865161"], ["updated_at", "2018-12-12 16:37:40.865161"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"155"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 193]]
+Redirected to http://test.host/users/193
+Completed 302 Found in 29ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$KEKT7Wcuk5udy8PnFPFi4eAWyfUlx3CMtyaGzmTWq.Frf9AWmPpsq"], ["created_at", "2018-12-12 16:47:45.927837"], ["updated_at", "2018-12-12 16:47:45.927837"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 194], ["created_at", "2018-12-12 16:47:45.982655"], ["updated_at", "2018-12-12 16:47:45.982655"]]
+  [1m[36m (1.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"194"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$.MQXeZVi/iWvNG79GdhyjuOfztCc0sb.xTRI2sf9fIikgSGQArRGK"], ["created_at", "2018-12-12 16:47:46.004808"], ["updated_at", "2018-12-12 16:47:46.004808"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 195], ["created_at", "2018-12-12 16:47:46.008848"], ["updated_at", "2018-12-12 16:47:46.008848"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"195"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$OGa9rju7fiFh.3Rk9JwePu0PXBKKf0XpRmDKTf3F5wPIKER7djV5m"], ["created_at", "2018-12-12 16:47:46.021817"], ["updated_at", "2018-12-12 16:47:46.021817"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 196], ["created_at", "2018-12-12 16:47:46.025260"], ["updated_at", "2018-12-12 16:47:46.025260"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"196"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$F6sliDrvyOq4W7GPIoH0m.sF/tsFshDCwssSHzKm6inQfpCLsjtBO"], ["created_at", "2018-12-12 16:47:46.038628"], ["updated_at", "2018-12-12 16:47:46.038628"]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 197], ["created_at", "2018-12-12 16:47:46.045264"], ["updated_at", "2018-12-12 16:47:46.045264"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"159"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 197]]
+Redirected to http://test.host/users/197
+Completed 302 Found in 26ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$W/6kBMa8Z.wX/IprZj/zZeQwlt78HBTKTkCA9Eoz8Ad1A5OOi1Bhe"], ["created_at", "2018-12-12 16:56:33.724880"], ["updated_at", "2018-12-12 16:56:33.724880"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 198], ["created_at", "2018-12-12 16:56:33.780205"], ["updated_at", "2018-12-12 16:56:33.780205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"198"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$GYbEJP2CEOPzL2DLQ3qi3.v4sU/3Ix2XHurc09KbGNKCELJiiMivW"], ["created_at", "2018-12-12 16:56:33.801558"], ["updated_at", "2018-12-12 16:56:33.801558"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 199], ["created_at", "2018-12-12 16:56:33.805164"], ["updated_at", "2018-12-12 16:56:33.805164"]]
+  [1m[35m (0.9ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"199"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$AvSk09UfLoJjd2Ixhub9VeoC.CyM6Eyeu6aP8wrv13jH/OZ/EHyeO"], ["created_at", "2018-12-12 16:56:33.818290"], ["updated_at", "2018-12-12 16:56:33.818290"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 200], ["created_at", "2018-12-12 16:56:33.826363"], ["updated_at", "2018-12-12 16:56:33.826363"]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"200"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Z7RvkbNkzpQaeNswUEo60ePR2uOrdLYcdGJkLCitVRp6qwv8U7JSW"], ["created_at", "2018-12-12 16:56:33.853343"], ["updated_at", "2018-12-12 16:56:33.853343"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 201], ["created_at", "2018-12-12 16:56:33.856852"], ["updated_at", "2018-12-12 16:56:33.856852"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"163"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 201]]
+Redirected to http://test.host/users/201
+Completed 302 Found in 28ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$bBy5o1e/lgBSwscAYj9mAOIFn3PX/647oTQLerbM.bWG.PLZdKZNe"], ["created_at", "2018-12-12 16:57:14.926092"], ["updated_at", "2018-12-12 16:57:14.926092"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 202], ["created_at", "2018-12-12 16:57:14.980532"], ["updated_at", "2018-12-12 16:57:14.980532"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"202"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$FDORdP39jd8yW9bb3ObAdO79vC4FEqW2AyyrEYBuaw4OCjlTtXKRy"], ["created_at", "2018-12-12 16:57:15.002679"], ["updated_at", "2018-12-12 16:57:15.002679"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 203], ["created_at", "2018-12-12 16:57:15.007094"], ["updated_at", "2018-12-12 16:57:15.007094"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"203"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$MusOa4NXnTSnwK9/VZVmb.NkdeYvLwx5pQB9SgG0s2IwCpSQ.ATWi"], ["created_at", "2018-12-12 16:57:15.026759"], ["updated_at", "2018-12-12 16:57:15.026759"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 204], ["created_at", "2018-12-12 16:57:15.030410"], ["updated_at", "2018-12-12 16:57:15.030410"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"204"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$r815wFZhfLyIks1o.MEw1.S8JJ2rGUkHJjnTjyB5psQpU7xeki9sS"], ["created_at", "2018-12-12 16:57:15.048665"], ["updated_at", "2018-12-12 16:57:15.048665"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 205], ["created_at", "2018-12-12 16:57:15.053453"], ["updated_at", "2018-12-12 16:57:15.053453"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"167"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 205]]
+Redirected to http://test.host/users/205
+Completed 302 Found in 29ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$BlVD9D5iV.rAvcC1kLsom../2Q36V.LyLAwAA3nw2Dh058jkWqntK"], ["created_at", "2018-12-12 16:57:52.361510"], ["updated_at", "2018-12-12 16:57:52.361510"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 206], ["created_at", "2018-12-12 16:57:52.426139"], ["updated_at", "2018-12-12 16:57:52.426139"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"206"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$.Bq0NYZIeXozwBQEbBshqOxhyXKo9sP0IGlPCL5Ty0sTUGMF2ZUW6"], ["created_at", "2018-12-12 16:57:52.449245"], ["updated_at", "2018-12-12 16:57:52.449245"]]
+  [1m[36m (0.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 207], ["created_at", "2018-12-12 16:57:52.453620"], ["updated_at", "2018-12-12 16:57:52.453620"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"207"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$5KyGX9LDqw4hD6Ubq2cBze8Yusa6BunsSu9V8wRgrv6uCVW6vIuBy"], ["created_at", "2018-12-12 16:57:52.467151"], ["updated_at", "2018-12-12 16:57:52.467151"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 208], ["created_at", "2018-12-12 16:57:52.471258"], ["updated_at", "2018-12-12 16:57:52.471258"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"208"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Mja0m6jHFlYmLL4wxQyV1eQTKIz./gFlBGvX/BT3RUhexiGyQri6a"], ["created_at", "2018-12-12 16:57:52.488653"], ["updated_at", "2018-12-12 16:57:52.488653"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 209], ["created_at", "2018-12-12 16:57:52.493454"], ["updated_at", "2018-12-12 16:57:52.493454"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"171"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 209]]
+Redirected to http://test.host/users/209
+Completed 302 Found in 29ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$bjyKtIygG/xgZDB52g3nZeSVXbMK7AnaDFnUIcsHV6V.QzXyJXaRa"], ["created_at", "2018-12-12 16:59:01.316101"], ["updated_at", "2018-12-12 16:59:01.316101"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 210], ["created_at", "2018-12-12 16:59:01.365783"], ["updated_at", "2018-12-12 16:59:01.365783"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"210"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$G00VmlId652P8hRE5k8.6u0QpVUvCyBI1GKFJKyqj0nEzQwbooc.G"], ["created_at", "2018-12-12 16:59:01.386921"], ["updated_at", "2018-12-12 16:59:01.386921"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 211], ["created_at", "2018-12-12 16:59:01.390834"], ["updated_at", "2018-12-12 16:59:01.390834"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"211"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$GkfrC1xkrZvA9NHUwOs.ye02TfhFeQ1h3Ygc/027fENrcPcenuL4e"], ["created_at", "2018-12-12 16:59:01.403314"], ["updated_at", "2018-12-12 16:59:01.403314"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 212], ["created_at", "2018-12-12 16:59:01.407131"], ["updated_at", "2018-12-12 16:59:01.407131"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"212"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$OTCfY./sP2s8yKUjRrZM6uteiofCpbDauIysjzGiZaDyD12QvMdPm"], ["created_at", "2018-12-12 16:59:01.422022"], ["updated_at", "2018-12-12 16:59:01.422022"]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 213], ["created_at", "2018-12-12 16:59:01.428947"], ["updated_at", "2018-12-12 16:59:01.428947"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"175"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 213]]
+Redirected to http://test.host/users/213
+Completed 302 Found in 29ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$EMUiir72EiQFcT6iSnnm1.QgFzWKiIZqcQ6zBxzSvqJZeWmLMeTI2"], ["created_at", "2018-12-12 16:59:33.705335"], ["updated_at", "2018-12-12 16:59:33.705335"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 214], ["created_at", "2018-12-12 16:59:33.783306"], ["updated_at", "2018-12-12 16:59:33.783306"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"214"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$4gWWGKEEZjkvHpxyWFaBFu50GNnBsl.ljZ7jCmXBxzczXrKIuiJ6i"], ["created_at", "2018-12-12 16:59:33.807564"], ["updated_at", "2018-12-12 16:59:33.807564"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 215], ["created_at", "2018-12-12 16:59:33.811064"], ["updated_at", "2018-12-12 16:59:33.811064"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"215"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$jhF65IyP2erUV379doK1M.y0i8ATauB6ibgQOAxPWFdoeq.jOKrsa"], ["created_at", "2018-12-12 16:59:33.822765"], ["updated_at", "2018-12-12 16:59:33.822765"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 216], ["created_at", "2018-12-12 16:59:33.825708"], ["updated_at", "2018-12-12 16:59:33.825708"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"216"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$S7k8ZPRh1yGWeDnPn9tuv.e4jtV60kGSFKjxYfM/sgBcOqpVnWUr."], ["created_at", "2018-12-12 16:59:33.837092"], ["updated_at", "2018-12-12 16:59:33.837092"]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 217], ["created_at", "2018-12-12 16:59:33.841519"], ["updated_at", "2018-12-12 16:59:33.841519"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"179"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 217]]
+Redirected to http://test.host/users/217
+Completed 302 Found in 27ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$fMrro5EegRKWG0DwTo37l.I67b2zWeM0sHWXq8m2BILqnxl/mTY.a"], ["created_at", "2018-12-12 17:01:09.354473"], ["updated_at", "2018-12-12 17:01:09.354473"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 218], ["created_at", "2018-12-12 17:01:09.411032"], ["updated_at", "2018-12-12 17:01:09.411032"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"218"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$X7J/RpxhvTkatT7EZSdGrek.4CeD0EpKf74w88cgFL2pw16CkbFWC"], ["created_at", "2018-12-12 17:01:09.434179"], ["updated_at", "2018-12-12 17:01:09.434179"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 219], ["created_at", "2018-12-12 17:01:09.441277"], ["updated_at", "2018-12-12 17:01:09.441277"]]
+  [1m[35m (0.8ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"219"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$b6ITo1ywa47I.bq1WDHYxO5LXdWae3pTxGm0D.gc1Ck0LqFIygMx."], ["created_at", "2018-12-12 17:01:09.466379"], ["updated_at", "2018-12-12 17:01:09.466379"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 220], ["created_at", "2018-12-12 17:01:09.470755"], ["updated_at", "2018-12-12 17:01:09.470755"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"220"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$5uEtpR8TXStlrZ9Sp/UUP.BsHkdcD6sFU1WS5qb8gXEDFGUP75pRG"], ["created_at", "2018-12-12 17:01:09.485556"], ["updated_at", "2018-12-12 17:01:09.485556"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 221], ["created_at", "2018-12-12 17:01:09.489404"], ["updated_at", "2018-12-12 17:01:09.489404"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"183"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 221]]
+Redirected to http://test.host/users/221
+Completed 302 Found in 27ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Ppg4SZ7uHgSWAxM2w7lzeuIkOGjQzH90zNkOEUG4dh1MLUPb81b/W"], ["created_at", "2018-12-12 17:02:27.245849"], ["updated_at", "2018-12-12 17:02:27.245849"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 222], ["created_at", "2018-12-12 17:02:27.300108"], ["updated_at", "2018-12-12 17:02:27.300108"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$HiOtGg.qWNkdw3uuDRTjx.Eb3Fy4X4WKvNQv6u9eKxxcvh5SA01CS"], ["created_at", "2018-12-12 17:02:27.327286"], ["updated_at", "2018-12-12 17:02:27.327286"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 223], ["created_at", "2018-12-12 17:02:27.331758"], ["updated_at", "2018-12-12 17:02:27.331758"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$XwKcQLx2PEDiujs.C3U9WO0I.Mkiur9IKF61ty7Do3qQCTbkjuaIy"], ["created_at", "2018-12-12 17:02:27.388993"], ["updated_at", "2018-12-12 17:02:27.388993"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 224], ["created_at", "2018-12-12 17:02:27.392426"], ["updated_at", "2018-12-12 17:02:27.392426"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$jJS.ROsp79hBJkhWyCdbYu3fv.C0/SIkva.4vO52ryb1n5ZlOIk2C"], ["created_at", "2018-12-12 17:02:27.406921"], ["updated_at", "2018-12-12 17:02:27.406921"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 225], ["created_at", "2018-12-12 17:02:27.410144"], ["updated_at", "2018-12-12 17:02:27.410144"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$u7thlVfIIwC/5.fkUGt8c.dOMESrz4SN7UaSXS.dSDVDXoFHEi7ES"], ["created_at", "2018-12-12 17:06:26.641274"], ["updated_at", "2018-12-12 17:06:26.641274"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 226], ["created_at", "2018-12-12 17:06:26.735435"], ["updated_at", "2018-12-12 17:06:26.735435"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"226"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$g1CKfC704FMxPPHuQ4vQmeDPVdxQJqYn5VYcEWP0XXtKQJHYS.qHe"], ["created_at", "2018-12-12 17:06:26.757026"], ["updated_at", "2018-12-12 17:06:26.757026"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 227], ["created_at", "2018-12-12 17:06:26.760550"], ["updated_at", "2018-12-12 17:06:26.760550"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"227"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$85eLQNNNd/NnMJR4DRcugu24ACju69AtVL2jgOE9OI6E4F9BAOwh6"], ["created_at", "2018-12-12 17:06:26.772034"], ["updated_at", "2018-12-12 17:06:26.772034"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 228], ["created_at", "2018-12-12 17:06:26.776850"], ["updated_at", "2018-12-12 17:06:26.776850"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"228"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$JXE0QTKxk9Ylo2ftUh98geR5DNulZLJoBPzbvBUzKIyubxVJSB1ni"], ["created_at", "2018-12-12 17:06:26.790780"], ["updated_at", "2018-12-12 17:06:26.790780"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 229], ["created_at", "2018-12-12 17:06:26.795045"], ["updated_at", "2018-12-12 17:06:26.795045"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"191"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 229]]
+Redirected to http://test.host/users/229
+Completed 302 Found in 26ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$fXXYJkHC8UwhAJV8V.SmPuslGSOM.c1kUGksy53PMxhQHdC5AGx8C"], ["created_at", "2018-12-12 17:10:36.256100"], ["updated_at", "2018-12-12 17:10:36.256100"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 230], ["created_at", "2018-12-12 17:10:36.306893"], ["updated_at", "2018-12-12 17:10:36.306893"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"230"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$b6P3xG.NbIrM5DOEBS2DqOKgkTtiIryHLOHGvOIXkfCxEvdJ8n4bS"], ["created_at", "2018-12-12 17:10:36.344785"], ["updated_at", "2018-12-12 17:10:36.344785"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 231], ["created_at", "2018-12-12 17:10:36.348376"], ["updated_at", "2018-12-12 17:10:36.348376"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"231"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$UWfQLFMERrrPTQhK3amdvOSqm5LV7bXKQq2UCq98NSC8h8KSiVHLG"], ["created_at", "2018-12-12 17:10:36.361258"], ["updated_at", "2018-12-12 17:10:36.361258"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 232], ["created_at", "2018-12-12 17:10:36.366008"], ["updated_at", "2018-12-12 17:10:36.366008"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"232"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$6MebJIFAL3L8O/m/jOTxF.j2tbLcpYqsu0otaYSVRkJUGoirUcscC"], ["created_at", "2018-12-12 17:10:36.382934"], ["updated_at", "2018-12-12 17:10:36.382934"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 233], ["created_at", "2018-12-12 17:10:36.389819"], ["updated_at", "2018-12-12 17:10:36.389819"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"195"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 233]]
+  [1m[35mSecret Load (0.4ms)[0m  SELECT  "secrets".* FROM "secrets" WHERE "secrets"."id" = $1 LIMIT 1  [["id", 195]]
+Completed 404 Not Found in 30ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$mATpvqhScg2V0G.XKKprOOVXSajn5Et290PclqPb1gzPr0VcE1tim"], ["created_at", "2018-12-12 17:13:25.687355"], ["updated_at", "2018-12-12 17:13:25.687355"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 234], ["created_at", "2018-12-12 17:13:25.741370"], ["updated_at", "2018-12-12 17:13:25.741370"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$.7fmv7NZj16CYT93m0kvA.Sjr3K/3Cco188IXSTXyzXTL.lCyL3HS"], ["created_at", "2018-12-12 17:13:25.749809"], ["updated_at", "2018-12-12 17:13:25.749809"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 235], ["created_at", "2018-12-12 17:13:25.753775"], ["updated_at", "2018-12-12 17:13:25.753775"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"234"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$HMqJ07YGSPRIhr1.fGG3XuJQ8K9OVrMfKrYyd.So7e8w55P5qK.n6"], ["created_at", "2018-12-12 17:13:25.774863"], ["updated_at", "2018-12-12 17:13:25.774863"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 236], ["created_at", "2018-12-12 17:13:25.778417"], ["updated_at", "2018-12-12 17:13:25.778417"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$IEmbJPhFNadX1AlSbuAznONVVlvhw.9yEERPgt76EuIilBLwEE.Vi"], ["created_at", "2018-12-12 17:13:25.785673"], ["updated_at", "2018-12-12 17:13:25.785673"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 237], ["created_at", "2018-12-12 17:13:25.789585"], ["updated_at", "2018-12-12 17:13:25.789585"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"236"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Af0yQDXQF0YdzVbUf4zge.d01HauiBiNyIdTWpXvBQtbaqb.InLYO"], ["created_at", "2018-12-12 17:13:25.803374"], ["updated_at", "2018-12-12 17:13:25.803374"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 238], ["created_at", "2018-12-12 17:13:25.808631"], ["updated_at", "2018-12-12 17:13:25.808631"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$i.2kBotI5RSPAr8ViEXDM.YaIH75A2BdKY8E4J2LcrpBrejvJcynW"], ["created_at", "2018-12-12 17:13:25.815175"], ["updated_at", "2018-12-12 17:13:25.815175"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 239], ["created_at", "2018-12-12 17:13:25.820930"], ["updated_at", "2018-12-12 17:13:25.820930"]]
+  [1m[35m (0.9ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"238"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$dNciD/HBHKyZLT/WEcnRreWTYzMvtnm6AK7z3bhMOk9O04j0ZNpPq"], ["created_at", "2018-12-12 17:13:25.861145"], ["updated_at", "2018-12-12 17:13:25.861145"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 240], ["created_at", "2018-12-12 17:13:25.865169"], ["updated_at", "2018-12-12 17:13:25.865169"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$otm9hp.GLVINr0Rc/WaI0ORp9EGBxjikZJwXuLvY7rVL9JkK9ugJ."], ["created_at", "2018-12-12 17:13:25.874847"], ["updated_at", "2018-12-12 17:13:25.874847"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 241], ["created_at", "2018-12-12 17:13:25.878510"], ["updated_at", "2018-12-12 17:13:25.878510"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"202"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 240]]
+  [1m[35mSecret Load (0.7ms)[0m  SELECT  "secrets".* FROM "secrets" WHERE "secrets"."id" = $1 LIMIT 1  [["id", 202]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 241]]
+Redirected to http://test.host/users/240
+Completed 302 Found in 46ms (ActiveRecord: 1.8ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$hgZ5qr9mZQhPDK0R5hACP.jl/RYrvZyFcYGaNaXV9v34GCsbTqPHq"], ["created_at", "2018-12-12 17:14:00.995680"], ["updated_at", "2018-12-12 17:14:00.995680"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 242], ["created_at", "2018-12-12 17:14:01.051465"], ["updated_at", "2018-12-12 17:14:01.051465"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$/MVluka1r9ewb6f2aLndi.PCcs56/0spAujOh/NoBs8c/u0UtKhf2"], ["created_at", "2018-12-12 17:14:01.059533"], ["updated_at", "2018-12-12 17:14:01.059533"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 243], ["created_at", "2018-12-12 17:14:01.063826"], ["updated_at", "2018-12-12 17:14:01.063826"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"242"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$vXEN.jj3nKCNs82mtOTUdekF4jtThL.eZGoNIJ19j4YVhQUJM2Qh6"], ["created_at", "2018-12-12 17:14:01.084027"], ["updated_at", "2018-12-12 17:14:01.084027"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 244], ["created_at", "2018-12-12 17:14:01.087611"], ["updated_at", "2018-12-12 17:14:01.087611"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$UQk384sxRKf3yRogMkh0D.4I8tDRgno3eMkVZz7Gf1DlR4nsex9Wu"], ["created_at", "2018-12-12 17:14:01.094175"], ["updated_at", "2018-12-12 17:14:01.094175"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 245], ["created_at", "2018-12-12 17:14:01.097496"], ["updated_at", "2018-12-12 17:14:01.097496"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"244"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$DpVK/4VTKgs3P5C/EdQP6uSVQ87HHxYtzx0wjOTZRAN2U194YNSDS"], ["created_at", "2018-12-12 17:14:01.110572"], ["updated_at", "2018-12-12 17:14:01.110572"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 246], ["created_at", "2018-12-12 17:14:01.114163"], ["updated_at", "2018-12-12 17:14:01.114163"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$g0Fosz1EWG0Nx6hOEEqCxu6VYI6NfjNmIISGAuqcPQ8mlsUb9ENfW"], ["created_at", "2018-12-12 17:14:01.122561"], ["updated_at", "2018-12-12 17:14:01.122561"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 247], ["created_at", "2018-12-12 17:14:01.125980"], ["updated_at", "2018-12-12 17:14:01.125980"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"246"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$EZ2ENcAu8Yh.Nnzxgl3ocebpvzT82pWqcNSwIP3Ur7yRK8THLHdXS"], ["created_at", "2018-12-12 17:14:01.138326"], ["updated_at", "2018-12-12 17:14:01.138326"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 248], ["created_at", "2018-12-12 17:14:01.141420"], ["updated_at", "2018-12-12 17:14:01.141420"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$W2oxDzN6Yrmsh9ab8Hl5W.t0J4M.M20AB6heSjSpwsxLKDbTaW8de"], ["created_at", "2018-12-12 17:14:01.150585"], ["updated_at", "2018-12-12 17:14:01.150585"]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 249], ["created_at", "2018-12-12 17:14:01.159485"], ["updated_at", "2018-12-12 17:14:01.159485"]]
+  [1m[35m (0.7ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"209"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 248]]
+  [1m[35mSecret Load (0.3ms)[0m  SELECT  "secrets".* FROM "secrets" WHERE "secrets"."id" = $1 LIMIT 1  [["id", 209]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 248]]
+Redirected to http://test.host/users/248
+Completed 302 Found in 40ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$Q/tIneS6tkGvDDsogOR6YeQEJLn6mLXVT6a9WA1MG2kl0mYNB3L1q"], ["created_at", "2018-12-12 17:15:41.592545"], ["updated_at", "2018-12-12 17:15:41.592545"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 250], ["created_at", "2018-12-12 17:15:41.645807"], ["updated_at", "2018-12-12 17:15:41.645807"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$zQi8YtQOgzJkArWKPt.IR.DtBq3tAQrVUsj3afAwZn5hL90Reo4lW"], ["created_at", "2018-12-12 17:15:41.652698"], ["updated_at", "2018-12-12 17:15:41.652698"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 251], ["created_at", "2018-12-12 17:15:41.656095"], ["updated_at", "2018-12-12 17:15:41.656095"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"250"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$58YsZtcXPwkpN0gk73ZL9eYAr9lOut2KrmgMcObg5HLy1z37V.rdm"], ["created_at", "2018-12-12 17:15:41.676969"], ["updated_at", "2018-12-12 17:15:41.676969"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 252], ["created_at", "2018-12-12 17:15:41.680296"], ["updated_at", "2018-12-12 17:15:41.680296"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$i36hLDU6Ke9WGRQ/hBBK1eJI0FmNYotb4bdMohc./OCIL3DO/zuwO"], ["created_at", "2018-12-12 17:15:41.686985"], ["updated_at", "2018-12-12 17:15:41.686985"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 253], ["created_at", "2018-12-12 17:15:41.690122"], ["updated_at", "2018-12-12 17:15:41.690122"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"252"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$cnjaVigY4y3zsHJV0OVJl.Bd22R7jDdcG5zq2EcltAiqK4rJBRK9C"], ["created_at", "2018-12-12 17:15:41.702586"], ["updated_at", "2018-12-12 17:15:41.702586"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 254], ["created_at", "2018-12-12 17:15:41.706678"], ["updated_at", "2018-12-12 17:15:41.706678"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$mWHzEKtplupjCvgfbIur2OFYpLXWxgnxuhDxQ848XjSlLHAquqBY2"], ["created_at", "2018-12-12 17:15:41.715763"], ["updated_at", "2018-12-12 17:15:41.715763"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 255], ["created_at", "2018-12-12 17:15:41.720488"], ["updated_at", "2018-12-12 17:15:41.720488"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"254"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$ig3v0seUXeFa/X424vs/a.fSYwW2tM63MAYzkdESfnTgNZO/BBizK"], ["created_at", "2018-12-12 17:15:41.733499"], ["updated_at", "2018-12-12 17:15:41.733499"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 256], ["created_at", "2018-12-12 17:15:41.736661"], ["updated_at", "2018-12-12 17:15:41.736661"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$J1e5XaBDwqZBXiNM9CxwUerj6ZQ1/OBB5zoIMrrjUjFJpTBEl2xAy"], ["created_at", "2018-12-12 17:15:41.742450"], ["updated_at", "2018-12-12 17:15:41.742450"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 257], ["created_at", "2018-12-12 17:15:41.745478"], ["updated_at", "2018-12-12 17:15:41.745478"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"217"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 256]]
+  [1m[35mSecret Load (0.8ms)[0m  SELECT  "secrets".* FROM "secrets" WHERE "secrets"."id" = $1 LIMIT 1  [["id", 217]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mLike Load (0.3ms)[0m  SELECT "likes".* FROM "likes" WHERE "likes"."secret_id" = $1  [["secret_id", 217]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "secrets" WHERE "secrets"."id" = $1[0m  [["id", 217]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/256
+Completed 302 Found in 105ms (ActiveRecord: 2.6ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$sgsXtmHaoMgtZGu.TLMRbuar0p5uzW/6vZIIdn9eY7EtloiukfXVy"], ["created_at", "2018-12-12 17:16:07.445333"], ["updated_at", "2018-12-12 17:16:07.445333"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 258], ["created_at", "2018-12-12 17:16:07.503411"], ["updated_at", "2018-12-12 17:16:07.503411"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$eh54OQzZnTNidUY.1.KcvueBTwie0rIq92Z.dgdmG2mTy7uFpV6D6"], ["created_at", "2018-12-12 17:16:07.511655"], ["updated_at", "2018-12-12 17:16:07.511655"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 259], ["created_at", "2018-12-12 17:16:07.515126"], ["updated_at", "2018-12-12 17:16:07.515126"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#index as HTML
+  Parameters: {"id"=>"258"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$d4mQpgvkNyX/iA7l1d02aeQORa96Z7TtR3fOCKTrRvLgC7RGeT6hq"], ["created_at", "2018-12-12 17:16:07.538331"], ["updated_at", "2018-12-12 17:16:07.538331"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 260], ["created_at", "2018-12-12 17:16:07.541580"], ["updated_at", "2018-12-12 17:16:07.541580"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$ozuNnxxfYA78cNiNnFm./OXLGqAvgXG5NVs4G4FBvxPbGQ8OiG6pi"], ["created_at", "2018-12-12 17:16:07.549561"], ["updated_at", "2018-12-12 17:16:07.549561"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 261], ["created_at", "2018-12-12 17:16:07.553723"], ["updated_at", "2018-12-12 17:16:07.553723"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#create as HTML
+  Parameters: {"id"=>"260"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$JhFqyup1c5vT2aVrgqHvTuhrwmq00yzmj0PUqqbxb8mFzasTBnnhq"], ["created_at", "2018-12-12 17:16:07.568081"], ["updated_at", "2018-12-12 17:16:07.568081"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 262], ["created_at", "2018-12-12 17:16:07.573618"], ["updated_at", "2018-12-12 17:16:07.573618"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$Is0qPiZIrYrVQKN45ci96OzOa0ZzaemMt6eujoook4tEy6.zSLyFO"], ["created_at", "2018-12-12 17:16:07.585080"], ["updated_at", "2018-12-12 17:16:07.585080"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 263], ["created_at", "2018-12-12 17:16:07.591989"], ["updated_at", "2018-12-12 17:16:07.591989"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"262"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$ZqN.BIe3eaiNwqpFwv75OOUqDwnFwAZ1qY4JtEMOrsfzWmYizdg8G"], ["created_at", "2018-12-12 17:16:07.604629"], ["updated_at", "2018-12-12 17:16:07.604629"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 264], ["created_at", "2018-12-12 17:16:07.609167"], ["updated_at", "2018-12-12 17:16:07.609167"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$LSZfb0llkrahuCl8PoqrSu6YzazOZXYk4pycAxah1aUm8jXfXDzi."], ["created_at", "2018-12-12 17:16:07.615256"], ["updated_at", "2018-12-12 17:16:07.615256"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I am a secret, yes I am"], ["user_id", 265], ["created_at", "2018-12-12 17:16:07.619092"], ["updated_at", "2018-12-12 17:16:07.619092"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SecretsController#destroy as HTML
+  Parameters: {"id"=>"226"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 264]]
+  [1m[35mSecret Load (0.3ms)[0m  SELECT  "secrets".* FROM "secrets" WHERE "secrets"."id" = $1 LIMIT 1  [["id", 226]]
+Redirected to http://test.host/users/264
+Completed 302 Found in 30ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$1lyPKTXTbXkmf0mY0s3Ny.dU7UgurSWb8vADl4tvEwPjYJ0K1kDKS"], ["created_at", "2018-12-12 17:27:36.863607"], ["updated_at", "2018-12-12 17:27:36.863607"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 266], ["created_at", "2018-12-12 17:27:36.918407"], ["updated_at", "2018-12-12 17:27:36.918407"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 266], ["secret_id", 227], ["created_at", "2018-12-12 17:27:36.953667"], ["updated_at", "2018-12-12 17:27:36.953667"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$1uVsqYzI3rR3MORBcoAnsOdMpCnYwgcgARigTdumXx6Y.a5J6byV6"], ["created_at", "2018-12-12 17:27:36.961461"], ["updated_at", "2018-12-12 17:27:36.961461"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 267], ["created_at", "2018-12-12 17:27:36.964692"], ["updated_at", "2018-12-12 17:27:36.964692"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 267], ["secret_id", 228], ["created_at", "2018-12-12 17:27:36.968850"], ["updated_at", "2018-12-12 17:27:36.968850"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#create as HTML
+  Parameters: {"id"=>"266"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$ZiDnruuiV0yb246YANNlTe1GPov9V.eAMPdtK9GsYBJr7Dm5Lo1KS"], ["created_at", "2018-12-12 17:27:36.990720"], ["updated_at", "2018-12-12 17:27:36.990720"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 268], ["created_at", "2018-12-12 17:27:36.993859"], ["updated_at", "2018-12-12 17:27:36.993859"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 268], ["secret_id", 229], ["created_at", "2018-12-12 17:27:36.997527"], ["updated_at", "2018-12-12 17:27:36.997527"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$VIVjZKt2CJRyLlpBDOKSru4EDtZMKt9KICFE5RFBwZrRtTHJxoqQq"], ["created_at", "2018-12-12 17:27:37.003678"], ["updated_at", "2018-12-12 17:27:37.003678"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 269], ["created_at", "2018-12-12 17:27:37.007074"], ["updated_at", "2018-12-12 17:27:37.007074"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 269], ["secret_id", 230], ["created_at", "2018-12-12 17:27:37.010261"], ["updated_at", "2018-12-12 17:27:37.010261"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#destroy as HTML
+  Parameters: {"id"=>"268"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$sZSw24SK6eefitp2aCyQyO/STTnY8ARmzmiiq/KcmS/edVKDMnygy"], ["created_at", "2018-12-12 17:27:37.032979"], ["updated_at", "2018-12-12 17:27:37.032979"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 270], ["created_at", "2018-12-12 17:27:37.045445"], ["updated_at", "2018-12-12 17:27:37.045445"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 270], ["secret_id", 231], ["created_at", "2018-12-12 17:27:37.051441"], ["updated_at", "2018-12-12 17:27:37.051441"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$O/tNpl4R3WpT531Ye0RhH.uDHMcx3MeNrSsXqxLyUhh6T2BQ9OV.O"], ["created_at", "2018-12-12 17:27:37.057929"], ["updated_at", "2018-12-12 17:27:37.057929"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 271], ["created_at", "2018-12-12 17:27:37.060907"], ["updated_at", "2018-12-12 17:27:37.060907"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 271], ["secret_id", 232], ["created_at", "2018-12-12 17:27:37.064406"], ["updated_at", "2018-12-12 17:27:37.064406"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#destroy as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 270]]
+  [1m[35mLike Load (0.2ms)[0m  SELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT 1  [["id", 41]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$gYKiTArSNCAgWxYQiaPEnuWqmMu0TdQtPOR35j4hQY0Dx/Use8vS."], ["created_at", "2018-12-12 17:28:29.219154"], ["updated_at", "2018-12-12 17:28:29.219154"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 272], ["created_at", "2018-12-12 17:28:29.274000"], ["updated_at", "2018-12-12 17:28:29.274000"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 272], ["secret_id", 233], ["created_at", "2018-12-12 17:28:29.325486"], ["updated_at", "2018-12-12 17:28:29.325486"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$Ec5gQxnLi11WMl5D1D6y1eLxriiT1upQaM1gbEyJLIxdXt7.P4Pii"], ["created_at", "2018-12-12 17:28:29.333739"], ["updated_at", "2018-12-12 17:28:29.333739"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 273], ["created_at", "2018-12-12 17:28:29.337509"], ["updated_at", "2018-12-12 17:28:29.337509"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 273], ["secret_id", 234], ["created_at", "2018-12-12 17:28:29.342445"], ["updated_at", "2018-12-12 17:28:29.342445"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#create as HTML
+  Parameters: {"id"=>"272"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$XuP0oxt3iB3Bj00pGXm.VecyuDV3Ts1LAj97iSu4OsmTtB2zqlRFu"], ["created_at", "2018-12-12 17:28:29.363671"], ["updated_at", "2018-12-12 17:28:29.363671"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 274], ["created_at", "2018-12-12 17:28:29.367498"], ["updated_at", "2018-12-12 17:28:29.367498"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 274], ["secret_id", 235], ["created_at", "2018-12-12 17:28:29.371321"], ["updated_at", "2018-12-12 17:28:29.371321"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$0zxysO7.lP/iPIg10CempOw6w7skmFDqxuR6m1QD6aR1OqrVi9EoC"], ["created_at", "2018-12-12 17:28:29.378875"], ["updated_at", "2018-12-12 17:28:29.378875"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 275], ["created_at", "2018-12-12 17:28:29.382456"], ["updated_at", "2018-12-12 17:28:29.382456"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 275], ["secret_id", 236], ["created_at", "2018-12-12 17:28:29.386717"], ["updated_at", "2018-12-12 17:28:29.386717"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#destroy as HTML
+  Parameters: {"id"=>"274"}
+Redirected to http://test.host/users/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jose@astros.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Jose Altuve"], ["email", "jose@astros.com"], ["password_digest", "$2a$04$34KkHxD9bRzbF6PoLdxtS.lN9rMiFlvOOHPY6K6DlsB3ksazzPdrO"], ["created_at", "2018-12-12 17:28:29.403327"], ["updated_at", "2018-12-12 17:28:29.403327"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 276], ["created_at", "2018-12-12 17:28:29.407642"], ["updated_at", "2018-12-12 17:28:29.407642"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 276], ["secret_id", 237], ["created_at", "2018-12-12 17:28:29.411296"], ["updated_at", "2018-12-12 17:28:29.411296"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'bob@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bob"], ["email", "bob@gmail.com"], ["password_digest", "$2a$04$NlmjtpgG6VPu1L9thwQzCe0m/ZZGfR/OuJXIBum1JrWgjI67X9F.6"], ["created_at", "2018-12-12 17:28:29.417912"], ["updated_at", "2018-12-12 17:28:29.417912"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "secrets" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "I am a secret, yes I am"], ["user_id", 277], ["created_at", "2018-12-12 17:28:29.421433"], ["updated_at", "2018-12-12 17:28:29.421433"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "likes" ("user_id", "secret_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 277], ["secret_id", 238], ["created_at", "2018-12-12 17:28:29.425543"], ["updated_at", "2018-12-12 17:28:29.425543"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LikesController#destroy as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 276]]
+  [1m[35mLike Load (0.4ms)[0m  SELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT 1  [["id", 47]]
+Redirected to http://test.host/secrets
+Completed 302 Found in 30ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m

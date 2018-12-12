@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
     def require_its_yours
-      @@authorize = params[:id] == session[:user_id]
+      @@authorize = params[:id].to_i == session[:user_id]
       if !@@authorize
         return redirect_to "/users/#{session[:user_id]}"
       end

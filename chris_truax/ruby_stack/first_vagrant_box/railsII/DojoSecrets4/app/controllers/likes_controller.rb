@@ -5,7 +5,13 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    Like.find(params[:id]).destroy
+    @like = Like.find(params[:id])
+    if @like.user_id == session[:user_id]
+      @like.destroy
+    else
+      @errors = ["You are not authorized to destroy that like!"]
+      flash[:errors] = @errors
+    end
     redirect_to "/secrets"
   end
 end
