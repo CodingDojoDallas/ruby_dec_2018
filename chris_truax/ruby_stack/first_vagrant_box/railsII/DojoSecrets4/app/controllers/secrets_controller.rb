@@ -13,10 +13,12 @@ class SecretsController < ApplicationController
     end
   end
   def destroy
-    if params[:id].to_i == session[:user_id]
-      Secret.find(params[:id]).destroy
+    @secret = Secret.find(params[:id])
+    if @secret.user_id == session[:user_id]
+      @secret.destroy
     else
-      flash[:errors] = ["You are not authorized to destroy that secret!"]
+      @errors = ["You are not authorized to destroy that secret!"]
+      flash[:errors] = @errors
     end
     redirect_to "/users/#{session[:user_id]}"
   end
