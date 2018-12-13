@@ -1,0 +1,28 @@
+Basic color functions you can use:
+
+hue($color)
+saturation($color)
+lightness($color)
+adjust-hue($color, $degrees)
+lighten($color, $amount)
+darken($color, $amount)
+saturate($color, $amount)
+desaturate($color, $amount)
+
+
+Other great color functions you can use to manipulate the color:
+
+mix($color1, $color2, [$weight]) - mixes two colors together.
+complement($color) - returns a complement of a color
+invert($color) - returns the inverse of a color
+opacity($color) - gets the opacity of a color
+opacify($color, $amount - makes a color more opaque
+transparentize($color, $amount) - makes a color more transparent
+
+Here are some great sites you can take a look to learn more and have some fun with SASS:
+
+(Good) Complete list of SASS functions: http://sass-lang.com/documentation/Sass/Script/Functions.html
+(Good) Visualize SASS color functions: http://sassme.arc90.com/
+(Great) Good article on the color functions: http://robots.thoughtbot.com/controlling-color-with-sass-color-functions
+(Great) Some advanced SASS directives and functions: http://12devs.co.uk/articles/handy-advanced-sass/
+(Great) Some useful SASS functions: http://hugogiraudel.com/2013/08/12/sass-functions/
