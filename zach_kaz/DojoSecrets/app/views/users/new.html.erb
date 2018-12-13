@@ -1,0 +1,23 @@
+<h1>Sign UP</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |key,value| %>
+    <p id="notice"><%= key %> <%= value[0] %></p>  
+  <% end %>
+<% end %>
+<% if flash[:passworderror] %>
+<p><%= flash[:passworderror] %>
+<% end %>
+<form action = "" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <label>Name</label>
+  <input type = "text" name = "user[name]" id = "user_name">
+  <label>Email</label>
+  <input type = "text" name = "user[email]" id = "user_email">
+  <label>Password</label>
+  <input type = "password" name = "user[password]" id = "user_password">
+  <label>Confirm Password</label>
+  <input type = "password" name = "user[confirmpassword]" id = "user_confirmpassword">
+  <input type = "submit" value = "Join" id='joinbutton'>
+</form>
+<br>
+<a href='/login/'>log-in</a>

@@ -1,0 +1,8 @@
+Comment.create(comment:User.first, message:"Hello friend")
+Comment.create(comment:Post.first, message:"You smell funny")
+Comment.create(comment:Blog.first, message:"What a weird name for a blog")
+Comment.create(comment:Message.first, message:"stop looking at me swan")
+
+Comment.all
+Comment.first.destroy
+Comment.second.update(message:"This is an updated message")

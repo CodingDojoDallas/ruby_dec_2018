@@ -1,0 +1,18 @@
+<h2>Welcome <%=@user.username%></h2>
+<a href="/users/logout">Log Out</a>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |note| %>
+    <p id="notice"><%= note %></p>
+  <% end %>
+<% end %>
+<h1>Post a Message</h1>
+<form class="" action="/messages" method="post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <input type="hidden" name="message[user_id]" value="<%=@user.id%>">
+  <textarea name="message[content]" rows="8" cols="80" id="content"></textarea>
+  <input type="submit" value="Post a Message">
+</form>
+<%@messages.each do |message|%>
+  <p><%=message.username%> - <%=message.created_at%></p>
+  <p><%=message.content%></p>
+<%end%>

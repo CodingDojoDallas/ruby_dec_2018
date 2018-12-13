@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<h1>Users#view</h1>
+<p>Find me in app/views/users/view.html.erb</p>
+
+<% if flash[:count] %>
+  <div class="bg-success">
+    <h1><%= flash[:count] %></h1>
+  </div>
+<% end %>
+<div class="col-lg-5 bg-primary">
+  <h1>Submitted Information</h1>
+  <div class="row m-1">
+    <h3 class="d-inline-block">Name:</h3>
+    <h3 class="d-inline-block"> <%= @user.name %></h3>
+  </div>
+  <div class="row m-1">
+    <h3 class="d-inline-block">Dojo Location:</h3>
+    <h3 class="d-inline-block"> <%= @user.dojo %></h3>
+  </div>
+  <div class="row m-1">
+    <h3 class="d-inline-block">Favorite Language:</h3>
+    <h3 class="d-inline-block"> <%= @user.language %></h3>
+  </div>
+  <div class="row m-1">
+    <h3 class="d-inline-block">Comment:</h3>
+    <h3 class="d-inline-block"> <%= @user.comment %></h3>
+  </div>
+  <a href="/" class='btn btn-success m-1'>Go Back!</a>
+</div>

@@ -1,0 +1,22 @@
+
+<form class="form-group m-1" action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class='form-control' type="text" name="user[name]" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class='form-control' type="text" name="user[email]" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class='form-control' type="text" name="user[password]" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="password_confirmation">Password Confirmation</label>
+    <input class='form-control' type="text" name="user[password_confirmation]" placeholder="Password Confirmation">
+  </div>
+
+  <button class='btn btn-primary' type="submit" name="Join">Join</button>
+</form>

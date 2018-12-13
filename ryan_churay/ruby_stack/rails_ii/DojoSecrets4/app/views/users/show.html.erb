@@ -1,0 +1,27 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<h1><%= @user.name %></h1>
+<a href="/users/<%= @user.id %>/edit">Edit Profile</a>
+
+<form class="form-group col-lg-6" action="/secrets" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="content">Content</label>
+    <input class='form-control' type="text" name="secret[content]" placeholder="Content">
+  </div>
+  <button class='btn btn-primary' type="submit" name="Create Secret">Create Secret</button>
+</form>
+
+<% @secrets.each do |secret| %>
+  <p class='d-inline-block'><%= secret.content %></p>
+  <% if session[:user_id] == secret.user_id %>
+    <form class="form-group d-inline-block" action="/secrets/<%= @user.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="secret[secret_id]" value="<%= secret.id %>">
+      <button class='btn btn-danger' type="submit" name="Delete Secret">Delete Secret</button>
+    </form>
+  <% end %>
+  <p><%= secret.likes.count %></p>
+<% end %>
