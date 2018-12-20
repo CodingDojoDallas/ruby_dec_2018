@@ -1,0 +1,57 @@
+<div class="navbar bg-dark mb-3">
+  <h1 class="mr-auto p-2 bd-highlight text-white">Welcome, <%= @user.first_name %> <%= @user.last_name %>!</h1>
+  <% if session[:user_id] %>
+    <a class="p-2 bd-highlight" href="/sessions/<%= session[:user_id] %>" data-method="delete">Log Out</a>
+  <% end %>
+</div>
+
+<div class="container">
+<h2>Here are the organizations you may join:</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Members</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.each do |group| %>
+      <tr>
+        <td> <a href="/organizations/<%=group.id%>"><%= group.name %></a> </td>
+        <td><%= group.users_attending.count %></td>
+        <td><%= group.description %></td>
+        <td>
+          <% if session[:user_id] == group.user_id %>
+          <a href="/organizations/<%= group.id %>" data-method="delete">Delete</a>
+      </tr>
+      <% end %>
+      <% end %>
+</table>
+</div>
+
+
+<div class="container">
+<div class="col-5">
+    <h3 class="font-weight-normal">Create a new organization:</h3>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |m| %>
+        <p class="alert alert-danger"><%= m %></p>
+      <% end %>
+    <% end %>
+    <form class="mb-5" action="/organizations" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type='hidden' name='organization[user_id]' value="<%= session[:user_id] %>">
+      <div class="form-group">
+        <label for="">Organization Name:</label>
+        <input type="text" name="organization[name]" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Description:</label>
+        <input type="text" name="organization[description]" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>

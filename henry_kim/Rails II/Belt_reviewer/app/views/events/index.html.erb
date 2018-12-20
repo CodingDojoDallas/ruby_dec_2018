@@ -1,0 +1,123 @@
+<div class="navbar bg-orange mb-3">
+  <h1 class="mr-auto p-2 bd-highlight text-white">Welcome, <%= @user.first_name %>!</h1>
+  <a class="p-2 bd-highlight" href="/users/<%= session[:user_id]%>/edit">Edit My Profile</a>
+  <% if session[:user_id] %>
+    <a class="p-2 bd-highlight" href="/sessions/<%= session[:user_id] %>" data-method="delete">Log Out</a>
+  <% end %>
+</div>
+
+<div class="container">
+    <% if flash[:success] %>
+      <% flash[:success].each do |m| %>
+        <p class="alert alert-danger"><%= m %></p>
+      <% end %>
+    <% end %>
+<h1>Welcome, <%= @user.first_name %></h1>
+<h2>Here are some events in your state</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Location</th>
+      <th scope="col">Host</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @state_events.each do |event| %>
+      <tr>
+        <td> <a href="/events/<%= event.id %>"><%= event.name %></a> </td>
+        <td><%= event.date.strftime("%B %d, %Y") %></td>
+        <td><%= event.city %></td>
+        <td><%= event.user.first_name %> <%= event.user.last_name %></td>
+        <td>
+          <% if @user.id == event.user_id %>
+          <a href="/events/<%= event.id %>/edit">Edit</a>
+          <a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+          <% elsif @user.events_attending.include? event %>
+          <p>Joined</p>
+          <a href="joins/<%= event.attendance.find_by(user_id: @user.id).id %>" data-method="delete">Cancel</a>
+          <% else %>
+          <a href="events/<%= event.id %>/attendance" data-method="post">Join</a>
+          <% end %>
+         </td>
+      </tr>
+      <% end %>
+</table>
+
+<h3 class="font-weight-normal">Here are some of the events in other states:</h3>
+  <table class="table mb-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>State</th>
+        <th>Host</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @other_events.each do |event| %>
+      <tr>
+        <td> <a href="/events/<%= event.id %>"><%= event.name %></a> </td>
+        <td><%= event.date.strftime("%B %d, %Y") %></td>
+        <td><%= event.city %></td>
+        <td><%= event.state %></td>
+        <td><%= event.user.first_name %></td>
+        <td>
+          <% if @user.id == event.user_id %>
+          <a href="/events/<%= event.id %>/edit">Edit</a>
+          <a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+          <% elsif @user.events_attending.include? event %>
+          <p>Joined</p>
+          <a href="attendance/<%= event.attendance.find_by(user_id: @user.id).id %>" data-method="delete">Cancel</a>
+          <% else %>
+          <a href="events/<%= event.id %>/attendance" data-method="post">Join</a>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="container">
+<div class="col-5">
+    <h3 class="font-weight-normal">Add Event</h3>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |m| %>
+        <p class="alert alert-danger"><%= m %></p>
+      <% end %>
+    <% end %>
+    <form class="mb-5" action="/events" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type='hidden' name='event[user_id]' value="<%= session[:user_id] %>">
+      <div class="form-group">
+        <label for="">Name:</label>
+        <input type="text" name="event[name]" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Date:</label>
+        <input type="date" name="event[date]" class="form-control">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-8">
+          <label for="">City:</label>
+          <input type="text" name="event[city]" class="form-control" id="city">
+        </div>
+        <div class="form-group col-4">
+          <label>State:</label>
+          <select name="event[state]" id="state" class="form-control">
+            <%= states_helper.each do |key, value| %>
+            <option value="<%= key %>"><%= value %></option>
+          <% end %>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Event</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<a class="p-2 bd-highlight" href="/events">Events Dashboard</a>
+<div class="container mt-3">
+<form class="" action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label for="">First Name:</label>
+      <input class="form-control" type="text" name="user[first_name]" value="<%= @user.first_name %>">
+    </div>
+    <div class="form-group col-6">
+      <label for="">Last Name:</label>
+      <input class="form-control" type="text" name="user[last_name]" value="<%= @user.last_name %>">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-8">
+      <label for="">City:</label>
+      <input type="text" name="user[city]" value="<%= @user.city %>" class="form-control">
+    </div>
+    <div class="form-group col-4">
+      <label>State:</label>
+      <select name="user[state]" id="state" class="form-control">
+        <%= states_helper.each do |key, value| %>
+          <% if key.to_s == @user.state %>
+            <option selected value="<%= key %>"><%= value %></option>
+          <% else %>
+            <option value="<%= key %>"><%= value %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input class="form-control" type="email" name="user[email]" value="<%= @user.email %>">
+  </div>
+  <button class="btn btn-primary" type="submit">Update</button>
+</form>
+</div>
+</div>

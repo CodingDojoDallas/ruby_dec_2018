@@ -31,7 +31,7 @@
 
     <div class="col">
       <h3 class="text-center">Secrets Liked</h3>
-        <%= @liked.each do |i| %>
+        <% @liked.each do |i| %>
           <p class="text-center mt-3"><%= i.content %></p>
           <p class="text-center mt-3"><%= i.likes.count %> likes</p>
         <% end %>
