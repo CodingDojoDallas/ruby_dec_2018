@@ -1,0 +1,30 @@
+<% content_for :title, "All Users" %>
+<% content_for :all_users do %>
+  <h1>All Users</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <td>Coding Dojo Branch</td>
+      <td>Street</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @dojos.each do |dojo| %>
+      <tr>
+        <td><%= dojo.branch %></td>
+        <td><%= dojo.street %></td>
+        <td><%= dojo.city %></td>
+        <td><%= dojo.state %></td>
+        <td><a href="/dojos/<%= dojo.id %>">Show</a> | <a href="/dojos/<%= dojo.id %>/edit">Edit</a> | <a href="/dojos/<%= dojo.id %>"  data-method="delete">Destroy</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+<% content_for :new_user do %>
+  alert("This alert comes from the all users page");
+<% end %>
+<p>This is where you would have some code to display all the users</p>

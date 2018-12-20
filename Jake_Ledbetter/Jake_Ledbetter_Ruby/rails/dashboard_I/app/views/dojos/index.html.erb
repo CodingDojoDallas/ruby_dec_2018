@@ -1,0 +1,18 @@
+	<h1>Listing 4 Dojos</h1>
+<table>
+	<tr>
+		<th>Bracnh</th>
+		<th>Street</th>
+		<th>City</th>
+		<th>State</th>
+	</tr>
+
+	<% @Dojos.each do |a| %>
+	<tr>
+		<td><%= a.branch %></td>
+		<td><%= a.street %></td>
+		<td><%= a.city %></td>
+		<td><%= a.state %></td>
+	</tr>
+	<% end %>
+</table>

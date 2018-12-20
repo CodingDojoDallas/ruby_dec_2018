@@ -1,0 +1,38 @@
+<p>Your Gold: <%= session[:gold] %></p>
+<form action='<%= gold_path %>' method='post'>
+	<input name="authenticity_token" value = "<%=form_authenticity_token %>" type = "hidden">
+	<h3>FARM</h3>
+	<p>Earn 10-20 gold</p>
+	<input type='hidden' name='place' value='farm'>
+	<button name='farm' method='post'>Find Gold</button>
+</form>
+<form action='<%= gold_path %>' method='post'>
+	<input name="authenticity_token" value = "<%=form_authenticity_token %>" type = "hidden">
+	<h3>CAVE</h3>
+	<p>Earn 5-10 gold</p>
+	<input type='hidden' name='place' value='cave'>
+	<button name='cave' method='post'>Find Gold</button>
+</form>
+<form action='<%= gold_path %>' method='post'>
+	<input name="authenticity_token" value = "<%=form_authenticity_token %>" type = "hidden">
+	<h3>HOUSE</h3>
+	<p>Earn 2-5 gold</p>
+	<input type='hidden' name='place' value='house'>
+	<button name='house' method='post'>Find Gold</button>
+</form>
+<form action='<%= gold_path %>' method='post'>
+	<input name="authenticity_token" value = "<%=form_authenticity_token %>" type = "hidden">
+	<h3>CASINO</h3>
+	<p>Earn/Lose 0-50 gold</p>
+	<input type='hidden' name='place' value='casino'>
+	<button name='casino' method='post'>Find Gold</button>
+</form>
+<form action='<%= gold_path %>' method='post'>
+	<input name="authenticity_token" value = "<%=form_authenticity_token %>" type = "hidden">
+	<input type='hidden' name='place' value='restart'>
+	<button type='submit' name='restart' method='post'>Restart</button>
+</form>
+<% if 
+<% @activities.reverse.each do |activity| %>
+	<p><%= activity %></p>
+<% end %>

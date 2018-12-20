@@ -18,7 +18,9 @@ before_action :validate_login
 
   def destroy
     @secret = Secret.find(params[:id])
-    @secret.destroy
+    if @secret.user_id == session[:user_id]
+      @secret.destroy
+    end
     redirect_to  "/users/#{session[:user_id]}"
   end
 
@@ -26,6 +28,4 @@ before_action :validate_login
   def secret_params
     params.require(:secret).permit(:content, :user_id)
   end
-
-
 end

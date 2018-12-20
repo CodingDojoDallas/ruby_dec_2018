@@ -1,0 +1,168 @@
+? rails g model Comment comment:string shade:references{polymorphic}
+      invoke  active_record
+      create    db/migrate/20181130173559_create_comments.rb
+      create    app/models/comment.rb
+      invoke    test_unit
+   identical      test/models/comment_test.rb
+    conflict      test/fixtures/comments.yml
+<_on_rails/blog_posts_messages/test/fixtures/comments.yml? (enter "h" for help) [Ynaqdhm] Ynaqdhm
+            Y - yes, overwrite
+        n - no, do not overwrite
+        a - all, overwrite this and all others
+        q - quit, abort
+        d - diff, show the differences between the old and the new
+        h - help, show this help
+        m - merge, run merge tool
+<_on_rails/blog_posts_messages/test/fixtures/comments.yml? (enter "h" for help) [Ynaqdhm] Y
+       force      test/fixtures/comments.yml
+
+C:\Users\abars\Documents\Development\School_Projects\ruby_on_rails\ruby_dec_2018\andrew_barstow\ruby_on_rails\blog_posts_messages (master -> origin)
+? rails c
+Loading development environment (Rails 5.2.1.1)
+irb(main):001:0> quit
+
+C:\Users\abars\Documents\Development\School_Projects\ruby_on_rails\ruby_dec_2018\andrew_barstow\ruby_on_rails\blog_posts_messages (master -> origin)
+? rake db:migrate status
+== 20181130173559 CreateComments: migrating ===================================
+-- create_table(:comments)
+   -> 0.0057s
+== 20181130173559 CreateComments: migrated (0.0063s) ==========================
+
+rake aborted!
+Don't know how to build task 'status' (see --tasks)
+Did you mean?  stats
+
+(See full trace by running task with --trace)
+
+C:\Users\abars\Documents\Development\School_Projects\ruby_on_rails\ruby_dec_2018\andrew_barstow\ruby_on_rails\blog_posts_messages (master -> origin)
+? rake db:migrate:status
+
+database: C:/Users/abars/Documents/Development/School_Projects/ruby_on_rails/ruby_dec_2018/andrew_barstow/ruby_on_rails/blog_posts_messages/db/development.sqlite3
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20181129180243  Create message
+   up     20181129180406  Create post
+   up     20181129180504  Create blog
+   up     20181129180649  Create user
+   up     20181129180751  Create owners
+   up     20181130173559  Create comments
+
+
+C:\Users\abars\Documents\Development\School_Projects\ruby_on_rails\ruby_dec_2018\andrew_barstow\ruby_on_rails\blog_posts_messages (master -> origin)
+? rake db:migrate
+
+C:\Users\abars\Documents\Development\School_Projects\ruby_on_rails\ruby_dec_2018\andrew_barstow\ruby_on_rails\blog_posts_messages (master -> origin)
+? rails c
+Loading development environment (Rails 5.2.1.1)
+irb(main):001:0> Hirb.enable
+=> true
+irb(main):002:0> Comment.all
+  Comment Load (0.9ms)  SELECT "comments".* FROM "comments"
+=> #<ActiveRecord::Relation []>
+irb(main):003:0> Comment.create(comment: "this is a comment on the first blog", shade_id: 1, shade_type: "Blog")
+   (0.0ms)  begin transaction
+  Blog Load (0.0ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  Comment Create (2.0ms)  INSERT INTO "comments" ("comment", "shade_type", "shade_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [["comment", "this is a comment on the first blog"], ["shade_type", "Blog"], ["shade_id", 1], ["created_at", "2018-11-30 17:41:06.693573"], ["updated_at", "2018-11-30 17:41:06.693573"]]
+   (12.7ms)  commit transaction
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                             | shade_type | shade_id | created_at              | updated_at              |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| 1  | this is a comment on the first blog | Blog       | 1        | 2018-11-30 17:41:06 UTC | 2018-11-30 17:41:06 UTC |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+1 row in set
+irb(main):004:0> Comment.create(comment: "this is a comment on the first message", shade_id: 1, shade_type: "Message")
+   (0.0ms)  begin transaction
+  Message Load (0.0ms)  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  Comment Create (4.9ms)  INSERT INTO "comments" ("comment", "shade_type", "shade_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [["comment", "this is a comment on the first message"], ["shade_type", "Message"], ["shade_id", 1], ["created_at", "2018-11-30 17:41:40.742717"], ["updated_at", "2018-11-30 17:41:40.742717"]]
+   (14.4ms)  commit transaction
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                                | shade_type | shade_id | created_at              | updated_at              |
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+| 2  | this is a comment on the first message | Message    | 1        | 2018-11-30 17:41:40 UTC | 2018-11-30 17:41:40 UTC |
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+1 row in set
+irb(main):005:0> Comment.create(comment: "this is a comment on the first post", shade_id: 1, shade_type: "Post")
+   (0.0ms)  begin transaction
+  Post Load (0.0ms)  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  Comment Create (2.9ms)  INSERT INTO "comments" ("comment", "shade_type", "shade_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [["comment", "this is a comment on the first post"], ["shade_type", "Post"], ["shade_id", 1], ["created_at", "2018-11-30 17:41:56.023137"], ["updated_at", "2018-11-30 17:41:56.023137"]]
+   (19.6ms)  commit transaction
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                             | shade_type | shade_id | created_at              | updated_at              |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| 3  | this is a comment on the first post | Post       | 1        | 2018-11-30 17:41:56 UTC | 2018-11-30 17:41:56 UTC |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+1 row in set
+irb(main):006:0> Comment.create(comment: "this is a comment on the second blog", shade_id: 2, shade_type: "Blog")
+   (0.0ms)  begin transaction
+  Blog Load (1.1ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?  [["id", 2], ["LIMIT", 1]]
+  Comment Create (3.7ms)  INSERT INTO "comments" ("comment", "shade_type", "shade_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)
+  [["comment", "this is a comment on the second blog"], ["shade_type", "Blog"], ["shade_id", 2], ["created_at", "2018-11-30 17:42:09.750491"], ["updated_at", "2018-11-30 17:42:09.750491"]]
+   (14.7ms)  commit transaction
++----+--------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                              | shade_type | shade_id | created_at              | updated_at              |
++----+--------------------------------------+------------+----------+-------------------------+-------------------------+
+| 4  | this is a comment on the second blog | Blog       | 2        | 2018-11-30 17:42:09 UTC | 2018-11-30 17:42:09 UTC |
++----+--------------------------------------+------------+----------+-------------------------+-------------------------+
+1 row in set
+irb(main):007:0> Comment.all
+  Comment Load (1.0ms)  SELECT "comments".* FROM "comments"
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                                | shade_type | shade_id | created_at              | updated_at              |
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+| 1  | this is a comment on the first blog    | Blog       | 1        | 2018-11-30 17:41:06 UTC | 2018-11-30 17:41:06 UTC |
+| 2  | this is a comment on the first message | Message    | 1        | 2018-11-30 17:41:40 UTC | 2018-11-30 17:41:40 UTC |
+| 3  | this is a comment on the first post    | Post       | 1        | 2018-11-30 17:41:56 UTC | 2018-11-30 17:41:56 UTC |
+| 4  | this is a comment on the second blog   | Blog       | 2        | 2018-11-30 17:42:09 UTC | 2018-11-30 17:42:09 UTC |
++----+----------------------------------------+------------+----------+-------------------------+-------------------------+
+4 rows in set
+irb(main):008:0> Comment.first.update(comment: "this is a comment on the third blog now", shad_id: 3)
+  Comment Load (0.0ms)  SELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?  [["LIMIT", 1]]
+   (0.0ms)  begin transaction
+   (0.0ms)  rollback transaction
+ActiveModel::UnknownAttributeError: unknown attribute 'shad_id' for Comment.
+        from (irb):8
+irb(main):009:0> Comment.first.update(comment: "this is a comment on the third blog now", shade_id: 3)
+  Comment Load (0.0ms)  SELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?  [["LIMIT", 1]]
+   (0.0ms)  begin transaction
+  Blog Load (0.0ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?  [["id", 3], ["LIMIT", 1]]
+  Comment Update (2.9ms)  UPDATE "comments" SET "comment" = ?, "shade_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["comment", "this is a comment on the third blog now"], ["shade_id", 3], ["updated_at", "2018-11-30 17:48:24.583310"], ["id", 1]]
+   (9.8ms)  commit transaction
+=> true
+irb(main):010:0> Comment.all
+  Comment Load (0.0ms)  SELECT "comments".* FROM "comments"
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                                 | shade_type | shade_id | created_at              | updated_at              |
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+| 1  | this is a comment on the third blog now | Blog       | 3        | 2018-11-30 17:41:06 UTC | 2018-11-30 17:48:24 UTC |
+| 2  | this is a comment on the first message  | Message    | 1        | 2018-11-30 17:41:40 UTC | 2018-11-30 17:41:40 UTC |
+| 3  | this is a comment on the first post     | Post       | 1        | 2018-11-30 17:41:56 UTC | 2018-11-30 17:41:56 UTC |
+| 4  | this is a comment on the second blog    | Blog       | 2        | 2018-11-30 17:42:09 UTC | 2018-11-30 17:42:09 UTC |
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+4 rows in set
+irb(main):011:0> Comment.third.destroy
+  Comment Load (0.0ms)  SELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ? OFFSET ?  [["LIMIT", 1], ["OFFSET", 2]]
+
+   (0.0ms)  begin transaction
+  Comment Destroy (3.0ms)  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 3]]
+   (10.7ms)  commit transaction
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                             | shade_type | shade_id | created_at              | updated_at              |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+| 3  | this is a comment on the first post | Post       | 1        | 2018-11-30 17:41:56 UTC | 2018-11-30 17:41:56 UTC |
++----+-------------------------------------+------------+----------+-------------------------+-------------------------+
+1 row in set
+irb(main):012:0> Comment.all
+  Comment Load (1.0ms)  SELECT "comments".* FROM "comments"
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+| id | comment                                 | shade_type | shade_id | created_at              | updated_at              |
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+| 1  | this is a comment on the third blog now | Blog       | 3        | 2018-11-30 17:41:06 UTC | 2018-11-30 17:48:24 UTC |
+| 2  | this is a comment on the first message  | Message    | 1        | 2018-11-30 17:41:40 UTC | 2018-11-30 17:41:40 UTC |
+| 4  | this is a comment on the second blog    | Blog       | 2        | 2018-11-30 17:42:09 UTC | 2018-11-30 17:42:09 UTC |
++----+-----------------------------------------+------------+----------+-------------------------+-------------------------+
+3 rows in set
+irb(main):013:0>

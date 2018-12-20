@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>New Student</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+<div class='container'>
+  <% if flash[:student_errors] %>
+    <div class="alert alert-danger">
+      <p><%= pluralize(flash[:student_errors].length, "error") %></p>
+      <ul>
+        <% flash[:student_errors].each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form action='/dojos/<%= @dojo.id %>/students' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <h2 class="display-4 font-weight-bold">New Student</h2>
+    <div class='form-group row'>
+      <label for="first_name" class='col-sm-2 col-form-label'>First Name:</label>
+      <input id="first_name" name="student[first_name]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <label for="last_name" class='col-sm-2 col-form-label'>Last Name:</label>
+      <input id="last_name" name="student[last_name]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <label for="email" class='col-sm-2 col-form-label'>Email Address:</label>
+      <input id="email" name="student[email]" type="text" class='form-control col-sm-8'>
+    </div>
+    <div class='form-group row'>
+      <label for="dojo" class='col-sm-2 col-form-label'>Dojo:</label>
+      <select id="dojo" name="student[dojo]" class='custom-select col-sm-8'>
+        <option value='<%= @dojo.id %>'><%= @dojo.branch %></option>
+      </select>
+    </div>
+    <div class='form-group row'>
+      <div class='col-sm-8 offset-sm-2'>
+        <input type='submit' value='Create' class='btn btn-primary shadow'>
+      </div>
+    </div>
+  </form>
+  <a href="/dojos">Go Back</a>
+</div>
+</body>
+
+</html>

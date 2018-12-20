@@ -1,0 +1,3 @@
+Create a student changing his created_at to be the previous day...
+
+Student.create(first_name:"Elvis", last_name:"Presley", email:"e@presley.com", dojo:Dojo.first, created_at:DateTime.now.beginning_of_day-1)

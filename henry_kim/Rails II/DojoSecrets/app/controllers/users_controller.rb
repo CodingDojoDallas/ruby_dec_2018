@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :validate_login, except: [:new, :create]
+  before_action :validate_login, :authorized, except: [:new, :create]
 
   def new
   end
@@ -51,6 +51,12 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
+  end
+
+  def authorized
+    unless params[:id] == session[:user_id].to_s
+      redirect_to "/users/#{session[:user_id]}"
+    end
   end
 
 end

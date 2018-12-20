@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Survey Form - Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+        integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body>
+<div class='container'>
+  <% if flash[:times] %>
+    <div class="alert alert-success">
+      <%= flash[:times] %>
+    </div>
+  <% end %>
+  <h1 class='display-4 font-weight-bold'>Submitted Info</h1>
+  <div class='row'>
+    <p class='col-sm-2'>Name:</p>
+    <p class='col-sm-8'>
+      <%= @user['name'] %>
+    </p>
+  </div>
+  <div class='row'>
+    <p class='col-sm-2'>Dojo Location:</p>
+    <p class='col-sm-8'>
+      <%= @user['location'] %>
+    </p>
+  </div>
+  <div class='row'>
+    <p class='col-sm-2'>Favorite Language:</p>
+    <p class='col-sm-8'>
+      <%= @user['language'] %>
+    </p>
+  </div>
+  <div class='row'>
+    <p class='col-sm-2'>Comment:</p>
+    <p class='col-sm-8'>
+      <%= @user['comment'] %>
+    </p>
+  </div>
+
+  <div class='form-group row'>
+    <div class='col-sm-8 offset-sm-2'>
+      <a class='btn btn-success shadow' href='/'>Go Back</a>
+    </div>
+  </div>
+
+</div>
+</body>
+
+</html>

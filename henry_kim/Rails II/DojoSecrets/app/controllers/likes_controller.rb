@@ -8,7 +8,15 @@ class LikesController < ApplicationController
 
   def destroy
     like = Like.find(params[:id])
-    like.destroy
-    redirect_to "/users/#{session[:user_id]}"
+    if like.user_id == session[:user_id]
+      like.destroy
+      redirect_to "/users/#{session[:user_id]}"
+    else
+      user = User.find(session[:user_id])
+      user.destroy
+      session[:user_id] = nil
+      redirect_to "/sessions/new"
+    end
   end
+
 end

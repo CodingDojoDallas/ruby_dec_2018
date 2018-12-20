@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div class="container bg-info p-2">
+  <h1>New Student</h1>
+  <form class="form-group" action="/dojos/<%= @dojo.id %>/students" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group row">
+      <label for="first_name" class="col-lg-2 col-form-label">First Name: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="First Name" name='student[first_name]'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="last_name" class="col-lg-2 col-form-label">Last Name: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="Last Name" name='student[last_name]'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-lg-2 col-form-label">Email: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="Email" name='student[email]'>
+      </div>
+    </div>
+      <input type="hidden" class="form-control" value="<%= @dojo.id %>" name='student[dojo_id]'>
+    <div class="text-right col-lg-8">
+      <button class='btn btn-dark' type="submit" value="submit" name="button">Submit</button>
+    </div>
+  </form>
+</div>

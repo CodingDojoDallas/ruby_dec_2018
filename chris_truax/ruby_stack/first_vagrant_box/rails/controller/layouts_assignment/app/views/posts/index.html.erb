@@ -1,0 +1,54 @@
+<% content_for :left_column do %>
+<h1>All Posts</h1>
+<table class="container table">
+        <thead>
+            <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post| %>
+            <tr>
+            <th scope="row"><%=post.title%></th>
+            <td><%=post.content%></td>
+            <td><%=post.user.first_name%> <%=post.user.last_name%></td>
+            </tr>
+            <%end%>
+        </tbody>
+</table>
+<% end %>
+<% content_for :middle_column do %>
+<div class="container">
+    <h1>New post</h1>
+</div>
+<div class="container">
+    <form action='/posts' method='post'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label for="exampleInputtext1">Title:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="post[title]">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputtext1">Content:</label>
+            <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="post[content]">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputtext1">Author:</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="post[user_id]">
+            <% @users.each do |user| %>
+                <option value=<%= user.id %>><%= user.first_name %> <%= user.last_name %></option>
+            <% end %>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-success">New</button>
+    </form>
+    
+</div>
+<% end %>
+<% content_for :right_column do %>
+<h1>Go to Users Page</h1>
+<a class="badge badge-primary" href="/users">All Users</a>
+<% end %>

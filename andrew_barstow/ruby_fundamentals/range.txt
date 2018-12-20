@@ -1,0 +1,15 @@
+irb(main):103:0> sentence = 'This is a ruby sentence in a String Object'
+=> "This is a ruby sentence in a String Object"
+irb(main):104:0> word = ["these", 'are', 'ruby', 'words', 'in', 'an', 'array']
+=> ["these", "are", "ruby", "words", "in", "an", "array"]
+irb(main):105:0> sentence.include? 'ruby'
+=> true
+irb(main):106:0> words.include? 'ruby'
+=> false
+irb(main):107:0> word.include? 'ruby'
+=> true
+irb(main):108:0> word.max
+=> "words"
+irb(main):109:0> word.min
+=> "an"
+irb(main):110:0>

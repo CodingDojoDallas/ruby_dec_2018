@@ -1,0 +1,27 @@
+<% content_for :right_column do %>
+  <h1>New Student</h1>
+  <form class="form-group" action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group row">
+      <label for="first_name" class="col-lg-2 col-form-label">First Name: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="First Name" name='user[first_name]'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="last_name" class="col-lg-2 col-form-label">Last Name: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="Last Name" name='user[last_name]'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="language" class="col-lg-2 col-form-label">Favorite Language: </label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="Email" name='user[language]'>
+      </div>
+    </div>
+    <div class="text-right col-lg-8">
+      <button class='btn btn-dark' type="submit" value="submit" name="button">Submit</button>
+    </div>
+  </form>
+<% end %>

@@ -1,0 +1,16 @@
+Test using the console and make sure it allows you to add, 
+    update, delete comments for a user, blog, post, and a message. 
+
+Add:
+Comment.create(imageable: User.first, comment:"Do I know you?")
+Comment.create(imageable: Blog.second, comment:"What a nice blog.")
+Comment.create(imageable: Post.third, comment:"I am not sure that is right.")
+Comment.create(imageable: Message.last, comment:"Stop trolling!")
+
+Update:
+Comment.second.update(comment: "I do know you!")
+Comment.last.update(imageable: Message.fourth)
+Comment.last.update(imageable: Post.last)
+
+Delete:
+Comment.second.destroy

@@ -1,0 +1,21 @@
+<h1>Listing Users</h1>
+<table>
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Created At</td>
+    <td>Updated At</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.updated_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

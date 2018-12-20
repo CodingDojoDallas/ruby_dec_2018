@@ -1,0 +1,292 @@
+-------VAGRANT COMMANDS-------
+vagrant init: Initializes vagrant with a Vagrantfile
+vagrant up: Starts the vagrant machine
+vagrant up --provision: Starts the machine with the provision
+vagrant ssh: Starts a ssh session
+vagrant halt: Stops the machine
+vagrant destroy: Stops and deletes the machine
+vagrant box add: Adds a vagrant box image on your computer
+vagrant box list: List of all the vagrant boxes on your computer
+
+-------SETTING UP RUBY PROJECT-------
+vagrant up
+vagrant ssh
+cd /vagrant
+
+rails new {project name}
+cd {project name}
+rails server -b 0.0.0.0 (to run server; default port is 3000)
+
+bundle install (run everytime new gems are added)
+
+USEFULE GEMS
+'hirb' - for terminal queries to database and easy view of results
+'bcrypt' - password authentication and hashing
+'simple_form' - easy form creation
+'bootstrap-sass' - removes the need to add bootstrap cdn to html head
+'carrierwave' - easy upload of files, images, pdf, etc.
+'capybara' and 'rspec' - TDD/writing tests for code
+gem 'rails-footnotes', '>= 4.0.0', '<5'
+rails generate rails_footnotes:install - after bundle install
+
+config/environments/development.rb
+config.reload_classes_only_on_change = False
+
+cd {project name}
+rails generate model {Model Name} {columns ie. first_name:string last_name:string password:string email:string age:integer} - make sure model name is CAPITALIZED and SINGULAR; useful datatypes[:binary, :boolean, :date, :datetime, :decimal, :float, :integer, :primary_key(Active Record will create this for us), :references, :string, :text, :time, :timestamp]
+rake db:migrate (this actually migrates and creates the new model in the database)
+
+rails generate controller <ControllerName> <methods space separated>
+
+-------MIGRATIONS-------
+To Add New Column Into Database
+rails g migration AddEmailColumnToUsers email:string (or leave off email:string and go into the migration file and set up the way you want the column)
+
+rake db:rollback (to undo a migration and can add STEP=2 to go back two migrations)
+rake db:migrate:status (to show which migrations are up or down)
+rake db:migrate:up VERSION=MIGRATION_ID - Turns up the a specific migration
+rake db:migrate:down VERSION=MIGRATION_ID - Turns down the a specific migration
+
+FUNCTIONS
+create_table(name, options)
+drop_table(name)
+rename_table(old_name, new_name)
+add_column(table_name, column_name, type, options)
+rename_column(table_name, column_name, new_column_name)
+change_column(table_name, column_name, type, options)
+remove_column(table_name, column_name)
+add_index(table_name, column_name, index_type)
+remove_index(table_name, column_name)
+add_reference(table_name, referenced_model, index:true)
+
+-------RELATIONSHIPS-------
+Setting Up One to Many Relationships
+class Message < ActiveRecord::Base
+  belongs_to :user
+end
+class User < ActiveRecord::Base
+  has_many :messages
+end
+
+Many To Many i.e. HAS_MANY :Through Relationship
+$ rails g model Student first_name:string last_name:string
+$ rails g model Course title:string description:text
+$ rails g model Signup student:references course:references
+class Student < ActiveRecord::Base
+  has_many :signups
+  has_many :courses, through: :signups
+end
+class Signup < ActiveRecord::Base
+  belongs_to :student
+  belongs_to :course
+end
+class Course < ActiveRecord::Base
+  has_many :signups
+  has_many :students, through: :signups
+end
+# retrieves all the courses that the first student has signed up for
+Student.first.courses
+# retrieves all the students that have signed up for the second course
+Course.second.students
+
+Has One Relationships (not used often; useful for making queries that you don't want to include all information all the time)
+class User < ActiveRecord::Base
+  has_one :address
+end
+class Address < ActiveRecord::Base
+  belongs_to :user
+end
+
+POLYMORPHISM
+rails g model Picture imageable:references{polymorphic}
+rails g model Employee first_name:string last_name:string
+rails g model Product name:string
+rake db:migrate
+class Picture < ActiveRecord::Base
+  belongs_to :imageable, polymorphic: true
+end
+class Employee < ActiveRecord::Base
+  has_many :pictures, as: :imageable
+end
+class Product < ActiveRecord::Base
+  has_many :pictures, as: :imageable
+end
+# let's create a some pictures for the employees and products we just created. There are a couple of ways to do this.
+# first example:
+Picture.create(imageable_id: 1, imageable_type: "Employee")
+Picture.create(imageable_id: 1, imageable_type: "Product")
+# second example:
+Picture.create(imageable: Employee.second)
+Picture.create(imageable: Product.second)
+# now to retrieve the pictures of any employee or products we can do the following:
+pics1 = Employee.first.pictures
+pics2 = Employee.second.pictures
+pics3 = Product.first.pictures
+pics4 = Product.second.pictures
+
+-------CONSOLE DATABASE SEARCH ------
+rails c or rails console(to access console; similar to irb to acces ruby)
+User.find() - enter id in parens
+User.find_by() - enter field and entry to find by field
+User.where() - enter field and entry to find by field but retrieves all instances
+  Blog.where("id < 5")
+  Blog.where(name: 'Rails 101')
+.select(:first_name, :last_name) - pass in the attributes that you want to have returned
+User.find().update() - .update allows you to find it and update it all in one line
+
+
+
+u = User.find()
+u.destroy - to delete
+User.create(first_name:"Jon", last_name:"Stark", email:"jon@thewall.com", age:17)
+
+
+---------VALIDATIONS------------
+list of some validations:
+:length - validates the length of an attribute's value
+:minimum, :maximum, :in, :is
+:numericality - validates whether an attribute is a numeric value
+:odd, :even, and many others
+:presence - validates that the specified attributes are not empty
+:uniqueness - validates whether the value is unique in the corresponding database table. NOTE: always create a unique index in the database too.
+:confirmation - use this when you have two text fields that should receive exactly the same content; assumes the second field name has "_confirmation" appended
+validates_associated - use this when your model has associations with other models and they also need to be validated
+:acceptance - validate whether a checkbox was checked when a form was submitted (usually for 'terms and conditions')
+also, get familiar with :message and :on
+
+EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
+  validates :first_name, :last_name, presence: true, length: { in: 2..20 }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: EMAIL_REGEX }
+
+---------LIST OF CALLBACKS-------
+(ADD THESE INTO MODELS FILE)
+CREATING AN OBJECT
+before_validation
+after_validation
+before_save
+around_save
+before_create
+around_create
+after_create
+after_save
+after_commit
+
+UPDATING AN OBJECT
+before_validation
+after_validation
+before_save
+around_save
+before_update
+around_update
+after_update
+after_save
+after_commit
+
+DESTROYING AN OBJECT
+before_destroy
+around_destroy
+after_destroy
+after_commit
+
+Ninja.create(first_name:'Dallas', last_name:'Keuchel', dojo:Dojo.find(4))
+Ninja.create(first_name:'Justin', last_name:'Verlander', dojo:Dojo.find(4))
+Ninja.create(first_name:'Charlie', last_name:'Morton', dojo:Dojo.find(4))
+
+Blog.create(name:'Algorithm 101', description:'a walkthrough of basic algorithms')
+Blog.create(name:'Rails 101', description:'a walkthrough of basic rails setup')
+Blog.create(name:'Are They Safe', description:'guide book for foraging mushrooms')
+Blog.create(name:'Hitting with Power', description:'lessons on increasing hitting power')
+
+Message.create(author:'Ryan', message:'this is a new message', post:Post.find(1))
+Message.create(author:'Jose', message:'what is an algorithm', post:Post.find(1))
+Post.create(title:'Swing for Contact', content:'I do not think you should focus on power but instead on contact', blog:Blog.find(4))
+
+User.create(first_name: 'Jose', last_name: 'Altuve', email: 'jose@astros.com')
+User.create(first_name: 'George', last_name: 'Springer', email: 'george@astros.com')
+User.create(first_name: 'Carlos', last_name: 'Correa', email: 'carlos@astros.com')
+User.create(first_name: 'Josh', last_name: 'Reddick', email: 'josh@astros.com')
+User.create(first_name: 'Alex', last_name: 'Bregman', email: 'alex@astros.com')
+User.create(first_name: 'Marwin', last_name: 'Gonzales', email: 'marwin@astros.com')
+
+Owner.create(user:User.last, blog:Blog.fifth)
+blogs = Blog.all
+blogs.each do |b|
+  Owner.create(user:User.third, blog:b)
+end
+
+-------HTML-------
+for forms:
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+for patch method
+<input type="hidden" name="_method" value="patch">
+
+
+
+-------RAILS TDD -------
+Test database
+Up until now you have been working with the development database of your rails application. For your tests you will be using a separate test database for all of your test data. And similarly you will have a production database on your deployed instance. Each of these databases has its own set of data and can be in its own different state of migration.
+
+You will need to have your test database migrated in order to run your rspec tests. Under most circumstances the line ActiveRecord::Migration.maintain_test_schema! in your "rails_helper.rb" takes care of this for you and migrates your test database whenever there are any pending migrations. However if you make any modifications to an existing migration file, the test database will also need to be rebuilt. This can be done by executing rake db:migrate RAILS_ENV=test
+
+Create your rails app. The -T option creates the rails app without Test::Unit. Since we are going to be writing rspec tests this is what we want.
+dojo$ rails new <your_app_name> -T
+
+Gemfile -
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+end
+
+termial -
+dojo$ bundle install
+dojo$ rails generate rspec:install
+dojo$ rspec spec - to run tests
+
+spec/factories/users.rb
+FactoryBot.define do
+  factory :user do
+    first_name "John"
+    last_name "Doe"
+    email "john@doe.com"
+  end
+end
+
+spec/rails_helper.rb
+require 'factory_bot_rails'
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+  ...
+end
+
+capybara test setup
+dojo$ mkdir spec/features
+dojo$ touch spec/features/register_user_spec.rb
+
+spec/features/register_user_spec.rb
+require 'rails_helper'
+feature "guest user creates an account" do
+  scenario "successfully creates a new user account" do
+    visit new_user_path
+    fill_in "user_first_name", with: "shane"
+    fill_in "user_last_name", with: "chang"
+    fill_in "user_email", with: "schang@codingdojo.com"
+    click_button "Create User"
+    expect(page).to have_content "User successfully created"
+  end
+end
+
+-------BCrypt--------
+u = User.new(name: 'oscar', email: 'o@gmail.com', password: '', password_confirmation: 'nomatch')
+u.save                                                           # => false, password required
+u.password = 'password'
+u.save                                                           # => false, confirmation doesn't match
+u.password_confirmation = 'password'
+u.save                                                           # => true
+u.authenticate('not password')                                   # => false
+u.authenticate('password')                                       # => user instance
+## putting it all together
+User.find_by_email('o@gmail.com').try(:authenticate, 'password') # => user instance
+User.find_by_email('o@gmail.com').try(:authenticate, 'not')      # => false
+User.find_by_email('not@il.com').try(:authenticate, 'password')  # => false

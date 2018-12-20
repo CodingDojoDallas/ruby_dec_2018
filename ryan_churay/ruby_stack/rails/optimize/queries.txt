@@ -1,0 +1,28 @@
+PROBLEM 1 - Retrieve all players, then write a program that will loop through each player and display their team name, mascot and stadium. How many queries have we done?
+
+players = Player.all
+players.each do |player|
+  puts "Player Name: #{player.name}, Team: #{player.team.name}, Mascot: #{player.team.mascot}, Stadium: #{player.team.stadium}"
+end
+
+
+PROBLEM 2 - Retrieve all players, then write a program that will loop through each player and display their team name, mascot and stadium USING .includes. How many queries have we done?
+players = Player.includes(:team)
+players.each do |player|
+  puts "Player Name: #{player.name}, Team: #{player.team.name}, Mascot: #{player.team.mascot}, Stadium: #{player.team.stadium}"
+end
+
+
+PROBLEM 3 - Retrieve all players from the 'Chicago Bulls' by using .includes
+Player.includes(:team).where("teams.name = 'Chicago Bulls'").references(:team)
+
+PROBLEM 4 - Retrieve all players along with the team name that play at the 'Staple Center'
+Player.joins(:team).where("teams.stadium = 'Staples Center'").select("players.name, teams.name as team_name")
+
+PROBLEM 5 - Retrieve all teams that have any player that start their name with the letter "Z " by using .includes and .joins
+
+Player.where('players.name like ?', 'Z%').joins(:team).select('players.name, teams.name as team_name') -- In Between
+
+Player.includes(:team).select('players.name, teams.name as team_name').where('players.name like ?', 'Z%').references(:team) -- Slowest
+
+Player.joins(:team).select('players.name, teams.name as team_name').where('players.name like ?', 'Z%').references(:team) --- Fastest

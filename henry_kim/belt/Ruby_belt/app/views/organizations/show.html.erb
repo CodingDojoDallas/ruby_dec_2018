@@ -1,0 +1,44 @@
+<div class="navbar bg-dark mb-3">
+  <a class="p-2 bd-highlight" href="/organizations"> Dashboard</a>
+  <% if session[:user_id] %>
+    <a class="p-2 bd-highlight" href="/sessions/<%= session[:user_id]%>" data-method="delete">Log Out</a>
+  <% end %>
+</div>
+
+<div class='container'>
+  <h1><%= @group.name %></h1>
+	<div class='row'>
+		<div class='col'>
+			<p>Host: <%= @group.user.first_name %> <%= @group.user.last_name %></p>
+      <p>Description: <%= @group.description %></p>
+
+      <% if @group.users_attending.include? @user %>
+        <form action='/attendance/<%= @group.attendance.find_by(user_id: @user.id).id %>' method='post'>
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <button type='submit' class="btn my-2">Leave Group</button>
+        </form>
+      <% else %>
+        <form action='/organizations/<%= @group.id %>/attendance' method='post'>
+          <input type='hidden' name='user_id' value='<%= @user.id %>'>
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <button type='submit' class="btn my-2">Join Group</button>
+        </form>
+      <% end %>
+
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">People that joined the organization</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+          <% @group.users_attending.each do |user| %>
+          <tr>
+            <td><%= user.first_name %> <%= user.last_name %></td>
+			    </tr>
+          <% end %>
+			  </tbody>
+			</table>
+		</div>
+</div>

@@ -1,0 +1,65 @@
+<div class="navbar bg-dark mb-3">
+  <h1 class="mr-auto p-2 bd-highlight text-white"><%= @event.name %></h1>
+  <a class="p-2 bd-highlight" href="/events">Events Dashboard</a>
+  <% if session[:user_id] %>
+    <a class="p-2 bd-highlight" href="/sessions/<%= session[:user_id]%>" data-method="delete">Log Out</a>
+  <% end %>
+</div>
+<div class='container'>
+  <h1><%= @event.name %></h1>
+	<div class='row'>
+		<div class='col'>
+			<p>Host: <%= @event.user.first_name %> <%= @event.user.last_name %></p>
+      <p>Date: <%= @event.date.strftime("%B %d, %Y") %></p>
+      <p>Location: <%= @event.city %>, <%= @event.state %></p>
+			<p>People who are joining the event: <%= @events.users_attending.count %> </p>
+
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">Name</th>
+			      <th scope="col">Location</th>
+			      <th scope="col">State</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+          <% @events.users_attending.each do |user| %>
+          <tr>
+            <td><%= user.first_name %> <%= user.last_name %></td>
+            <td><%= user.city %></td>
+            <td><%= user.state %></td>
+			    </tr>
+          <% end %>
+			  </tbody>
+			</table>
+		</div>
+
+
+    <div class="col-5">
+      <h3 class="font-weight-normal">Discussion about this event:</h3>
+      <div class="card border-dark scrollbar mb-5" style="height: 20rem;">
+        <div class="card-body text-success">
+            <% @comments.each do |comment| %>
+              <p class="card-text"><%= comment.user.first_name %> says: <%= comment.content %></p>
+            <% end %>
+        </div>
+      </div>
+
+			<h4>Add Comment</h4>
+        <% if flash[:errors] %>
+          <% flash[:errors].each do |m| %>
+            <p class="alert alert-danger"><%= m %></p>
+          <% end %>
+        <% end %>
+			<form action='/comments' method='post'>
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				<input type='hidden' name='comment[event_id]' value='<%= params[:id] %>'>
+				<input type='hidden' name='comment[user_id]' value='<%= session[:user_id] %>'>
+        <div class="form-group">
+				<textarea name='comment[content]' rows='5' class='form-control'></textarea>
+				<button type="submit" class="btn btn-success mt-3">Submit Comment</button>
+			</form>
+		</div>
+
+	</div>
+</div>

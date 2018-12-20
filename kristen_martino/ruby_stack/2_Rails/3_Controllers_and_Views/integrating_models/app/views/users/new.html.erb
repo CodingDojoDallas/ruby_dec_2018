@@ -1,0 +1,8 @@
+<h2>Add New User</h2>
+<form action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label id="name">
+    <input type="text" name="user[name]" placeholder="Enter Name">
+  </label>
+  <input type='submit' value='Create'>
+</form>
